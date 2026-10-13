@@ -692,3 +692,5 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 .dk-contact .ccard{background:transparent}
 .dk-contact .ccard::before{opacity:.3}
 .dk-contact .ccard h2{font-family:var(--serif);font-weight:500;letter-spacing:-.01em}
+/* Essai : fond de la carte contact comme les cartes Services */
+.dk-contact .ccard{background:#230b0f;border:1px solid rgba(255,255,255,.09);border-radius:8px}
