@@ -801,12 +801,14 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
   inset:auto !important;
   top:auto !important; right:auto !important; bottom:auto !important; left:auto !important;
   width:auto !important;
+  min-width:0 !important;
   height:auto !important;
+  overflow:hidden !important;
   order:1 !important;
   grid-column:1 !important;
   flex-direction:column !important;
   justify-content:flex-end !important;
-  padding:clamp(40px,5vw,80px) clamp(32px,4vw,64px) clamp(40px,5vw,80px) clamp(56px,7vw,120px) !important;
+  padding:clamp(40px,5vw,80px) clamp(20px,3vw,40px) clamp(40px,5vw,80px) clamp(48px,6vw,96px) !important;
   background:none !important;
   color:#111 !important;
   z-index:1 !important;
@@ -825,9 +827,11 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 }
 .pcard .pc-panel h3{
   color:#111 !important;
-  font-size:clamp(38px,4.2vw,72px) !important;
+  font-size:clamp(28px,3vw,50px) !important;
   line-height:1.05;
   margin:0 0 14px !important;
+  word-break:break-word;
+  overflow-wrap:break-word;
 }
 .pcard .pc-panel .pc-desc{
   font-size:15px;
