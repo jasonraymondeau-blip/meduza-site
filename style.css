@@ -915,21 +915,41 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
    ============================================================ */
 #ldr{
   position:fixed;inset:0;z-index:9999;
-  background:#0e0c0b;
+  background-color:#120406;
+  background-image:url(assets/hero.jpg);
+  background-size:cover;
+  background-position:45% 50%;
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
   overflow:hidden;
   transition:transform .95s cubic-bezier(.76,0,.24,1);
 }
+@media (min-width:860px){
+  #ldr{background-position:100% 38%}
+}
+/* Voile sombre pour lisibilité du texte */
+#ldr:before{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(18,4,6,.45) 0%,rgba(18,4,6,.25) 50%,rgba(18,4,6,.70) 100%);
+  z-index:0;
+}
 #ldr.out{transform:translateY(-100%)}
 #ldr.done{pointer-events:none}
 
-/* Logo Meduza centré */
-.ldr-logo{
-  width:clamp(100px,22vw,180px);
-  opacity:.9;
-  margin-bottom:clamp(48px,10vh,96px);
-  filter:invert(1);
+/* Logo en haut à gauche — même position que le header */
+.ldr-brand{
+  position:absolute;
+  top:env(safe-area-inset-top,0px);
+  left:0;right:0;
+  height:76px;
+  display:flex;align-items:center;
+  padding:0 44px;
+  z-index:1;
+}
+.ldr-brand .wm{color:#fff}
+@media (max-width:767px){
+  .ldr-brand{height:64px;padding:0 16px}
 }
 
 /* Zone compteur + barre */
@@ -938,6 +958,7 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
   bottom:clamp(24px,5vh,52px);
   left:clamp(24px,5vw,56px);
   right:clamp(24px,5vw,56px);
+  z-index:1;
 }
 
 /* Chiffre */
