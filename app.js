@@ -290,7 +290,8 @@
 
   /* Masquer le site pendant le chargement */
   var hdr=document.querySelector('.hdr');
-  var hbox=document.querySelector('.hero-box');
+  var h1=document.querySelector('.hero-box h1');
+  var sub=document.querySelector('.hero-box .p');
   var fab=document.querySelector('.fab');
 
   var progress=0;
@@ -325,8 +326,9 @@
       ldr.classList.add('out');
       /* Reveal smoke des éléments */
       if(hdr) hdr.classList.add('vis');
+      if(h1) h1.classList.add('vis');
       setTimeout(function(){
-        if(hbox) hbox.classList.add('vis');
+        if(sub) sub.classList.add('vis');
         if(fab) fab.classList.add('vis');
       },200);
       /* Supprimer le loader du DOM après l'animation */

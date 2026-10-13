@@ -921,12 +921,15 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 }
 #ldr.done{pointer-events:none}
 
-/* Image de fond (la femme) */
+/* Image de fond (la femme) — même cadrage que le hero */
 .ldr-bg{
   position:absolute;inset:0;
-  background:url(assets/hero.jpg) center/cover no-repeat;
+  background:url(assets/hero.jpg) 45% 50%/cover no-repeat;
   transform:scale(1.04);
   transition:transform 1.6s cubic-bezier(.16,1,.3,1);
+}
+@media (min-width:860px){
+  .ldr-bg{background-position:100% 38%}
 }
 #ldr.done .ldr-bg{transform:scale(1)}
 
@@ -969,14 +972,13 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 }
 
 /* Éléments du site : cachés puis révélés en "smoke" */
-.hdr, .hero-box h1, .hero-box .p, .hero-box, .fab{
+.hdr, .hero-box h1, .hero-box .p, .fab{
   opacity:0;
-  transform:translateY(10px);
-  filter:blur(4px);
+  transform:translateY(12px);
+  filter:blur(5px);
   transition:opacity .9s ease, transform .9s ease, filter .9s ease;
 }
-.hdr.vis{ opacity:1; transform:translateY(0); filter:blur(0); }
-.hero-box.vis h1, .hero-box.vis .p{opacity:1;transform:translateY(0);filter:blur(0)}
-.hero-box.vis h1{transition-delay:.1s}
-.hero-box.vis .p{transition-delay:.25s}
+.hdr.vis{opacity:1;transform:translateY(0);filter:blur(0)}
+.hero-box h1.vis{opacity:1;transform:translateY(0);filter:blur(0);transition-delay:.1s}
+.hero-box .p.vis{opacity:1;transform:translateY(0);filter:blur(0);transition-delay:.25s}
 .fab.vis{opacity:1;transform:translateY(0);filter:blur(0);transition-delay:.35s}
