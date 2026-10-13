@@ -782,7 +782,7 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 /* --- Carte : sticky (superposition au scroll) + layout grid --- */
 .pcard{
   position:sticky !important;
-  top:0 !important;
+  top:96px !important;
   display:grid !important;
   grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
   grid-template-rows:1fr !important;
@@ -885,6 +885,7 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 /* --- Mobile --- */
 @media (max-width:1023px){
   .pcard{
+    top:80px !important;
     grid-template-columns:1fr !important;
     grid-template-rows:55% 1fr !important;
     height:80vh !important;
