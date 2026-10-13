@@ -783,6 +783,7 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 .pcard{
   position:sticky !important;
   top:96px !important;
+  z-index:10 !important;
   display:grid !important;
   grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
   grid-template-rows:1fr !important;
