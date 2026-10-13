@@ -1,0 +1,25 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Deploy to gh-pages
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git checkout --orphan gh-pages-new
+          git rm -rf .
+          git checkout main -- index.html app.js style.css cartes-interactions.css cartes-interactions.js
+          touch .nojekyll
+          git add .
+          git commit -m "Deploy to GitHub Pages" || true
+          git branch -D gh-pages || true
+          git branch -m gh-pages
+          git push origin gh-pages -f
