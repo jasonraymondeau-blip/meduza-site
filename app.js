@@ -288,7 +288,6 @@
   var pct=ldr&&ldr.querySelector('.ldr-pct');
   if(!ldr||!fill||!pct)return;
 
-  /* Masquer le site pendant le chargement */
   var hdr=document.querySelector('.hdr');
   var h1=document.querySelector('.hero-box h1');
   var sub=document.querySelector('.hero-box .p');
@@ -324,13 +323,8 @@
     ldr.classList.add('done');
     setTimeout(function(){
       ldr.classList.add('out');
-      /* Reveal smoke des éléments */
-      if(hdr) hdr.classList.add('vis');
-      if(h1) h1.classList.add('vis');
-      setTimeout(function(){
-        if(sub) sub.classList.add('vis');
-        if(fab) fab.classList.add('vis');
-      },200);
+      /* Smoke reveal : ajouter la classe animation */
+      [hdr,h1,sub,fab].forEach(function(el){if(el)el.classList.add('smoke')});
       /* Supprimer le loader du DOM après l'animation */
       setTimeout(function(){ldr.remove()},1200);
     },280);
