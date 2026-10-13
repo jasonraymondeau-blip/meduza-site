@@ -1,0 +1,156 @@
+/* ============================================================
+   MEDUZA, mini-interfaces animées des cartes de Services
+   Fichier autonome : à inclure tel quel dans le site.
+
+   CE QUE LE FICHIER ATTEND DE LA CARTE QUI LE CONTIENT
+   - --u        : largeur de la carte divisée par 100, en px
+                  (ex. carte de 285 px de large : --u:2.85px).
+                  Tout le contenu se met à l'échelle avec cette valeur.
+   - --k-title  : couleur du texte principal de la carte
+   - --k-sub    : couleur du texte secondaire de la carte
+   - --vbg      : couleur de fond de la carte (voir plus bas)
+   - --serif / --sans : polices du site (Cormorant Garamond / police système)
+   La carte doit être un conteneur en colonne (flex), avec une hauteur
+   définie : .viz prend la place restante (flex:1) entre le titre et le numéro.
+   ============================================================ */
+
+:root{ --mkm:url(data:image/png;base64,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) }   /* masque du « m » de Meduza : à remplacer par le vrai logo si besoin */
+
+/* mini-interfaces animées dans les cartes de Services (version aérée) */
+.card.dkc{--vbg:#230b0f}
+html.is-light .card.dkc{--vbg:#fff}
+.viz{--vl:color-mix(in srgb,var(--k-title) 14%,transparent);--vb:color-mix(in srgb,var(--k-title) 4%,transparent);position:relative;flex:1;min-height:0;margin:calc(var(--u,2px)*6) 0 calc(var(--u,2px)*3);overflow:hidden;font-size:max(10px,calc(var(--u,2px)*4.8));color:var(--k-title);display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:calc(var(--u,2px)*2)}
+.viz [data-t-on]{opacity:0;transform:translateY(calc(var(--u,2px)*3));transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.viz [data-t-on].on{opacity:1;transform:none}
+.viz [data-t-on].off{opacity:0}
+/* lignes de validation : texte seul, sans boîte */
+.r{display:flex;align-items:center;gap:calc(var(--u,2px)*3);padding:calc(var(--u,2px)*1.7) 0;line-height:1.1;white-space:nowrap}
+.r>span:nth-child(2){flex:1;overflow:hidden;text-overflow:ellipsis}
+.st{flex:none;position:relative;width:calc(var(--u,2px)*4.6);height:calc(var(--u,2px)*4.6);min-width:9px;min-height:9px;border-radius:50%;border:1.5px solid var(--vl);transition:background-color .3s,border-color .3s}
+.r.run .st{border-top-color:var(--k-title);animation:vspin .75s linear infinite}
+.r.ok .st{animation:none;background:var(--k-title);border-color:var(--k-title)}
+.r.ok .st:after,.tk:after{content:"";position:absolute;left:31%;top:14%;width:30%;height:54%;border:solid var(--vbg);border-width:0 1.6px 1.6px 0;transform:rotate(40deg)}
+@keyframes vspin{to{transform:rotate(360deg)}}
+.dot{position:relative;flex:none;width:calc(var(--u,2px)*2);height:calc(var(--u,2px)*2);min-width:5px;min-height:5px;border-radius:50%;background:#8fe3b0}
+.dot:after{content:"";position:absolute;inset:-3px;border-radius:50%;border:1px solid #8fe3b0;animation:vping 2s ease-out infinite}
+@keyframes vping{0%{transform:scale(.5);opacity:.9}100%{transform:scale(1.7);opacity:0}}
+/* 1 création : le clavier */
+.chip3{align-self:flex-end;display:inline-flex;align-items:center;gap:calc(var(--u,2px)*2.4);padding:calc(var(--u,2px)*2.2) calc(var(--u,2px)*4.4);border:1px solid var(--vl);border-radius:99px;background:var(--vb);font-size:.92em;margin-bottom:calc(var(--u,2px)*5)}
+.kbd{display:grid;gap:calc(var(--u,2px)*1.6);-webkit-mask-image:linear-gradient(to right,#000 66%,transparent);mask-image:linear-gradient(to right,#000 66%,transparent);margin-right:calc(var(--u,2px)*-4)}
+.kbd{transform:translateX(75%);opacity:0;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),opacity .9s ease}
+.kbd.ki{transform:none;opacity:1}
+.kbd-r{display:flex;gap:calc(var(--u,2px)*1.6)}
+.kk{flex:none;width:calc(var(--u,2px)*9.4*var(--w,1) + var(--u,2px)*1.6*(var(--w,1) - 1));height:calc(var(--u,2px)*9.4);border:1px solid var(--vl);border-radius:calc(var(--u,2px)*2.2);background:var(--vb);display:flex;align-items:flex-end;padding:calc(var(--u,2px)*1.4) calc(var(--u,2px)*1.8);font-style:normal;font-size:max(7px,calc(var(--u,2px)*3.1));color:var(--k-sub);transition:background-color .35s,border-color .35s,color .35s,transform .35s}
+.kk.l{align-items:center;justify-content:center;font-size:max(8px,calc(var(--u,2px)*3.8))}
+.kk.hot{background:color-mix(in srgb,var(--k-title) 15%,transparent);border-color:color-mix(in srgb,var(--k-title) 60%,transparent);color:var(--k-title);transform:translateY(1px)}
+/* 2 convaincre : un Reel façon Instagram */
+.ig{align-self:center;position:relative;flex:none;width:calc(var(--u,2px)*64);aspect-ratio:9/16;border-radius:calc(var(--u,2px)*7);overflow:hidden;border:1px solid var(--vl);filter:brightness(.62);-webkit-mask-image:linear-gradient(to bottom,#000 52%,transparent 100%);mask-image:linear-gradient(to bottom,#000 52%,transparent 100%);background:linear-gradient(170deg,color-mix(in srgb,var(--k-title) 21%,transparent),color-mix(in srgb,var(--k-title) 6%,transparent) 58%,color-mix(in srgb,var(--k-title) 12%,transparent))}
+.ig-top{position:absolute;left:calc(var(--u,2px)*5);right:calc(var(--u,2px)*5);top:calc(var(--u,2px)*4.6);display:flex;justify-content:space-between;align-items:center;font-weight:500;font-size:1.05em}
+.ig svg{display:block;width:calc(var(--u,2px)*6.4);height:calc(var(--u,2px)*6.4);fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ig-side{position:absolute;right:calc(var(--u,2px)*4);top:calc(var(--u,2px)*14);display:grid;gap:calc(var(--u,2px)*3.2);justify-items:center}
+.ic{display:grid;justify-items:center;gap:2px;font-size:.78em;font-style:normal;line-height:1.1;font-variant-numeric:tabular-nums}
+.ic em{font-style:normal}
+.ic.liked svg{fill:#ff3b4f;stroke:#ff3b4f;transition:fill .25s,stroke .25s}
+.ig-bot{position:absolute;left:calc(var(--u,2px)*3.4);right:calc(var(--u,2px)*3.4);bottom:calc(var(--u,2px)*5.4);display:flex;align-items:center;gap:calc(var(--u,2px)*1.6);font-size:.6em}
+.av{flex:none;width:calc(var(--u,2px)*5);height:calc(var(--u,2px)*5);min-width:9px;min-height:9px;border-radius:50%;background:var(--vl);box-shadow:0 0 0 1.5px var(--k-title)}
+.ig-bot b{font-weight:500}
+.fol{border:1px solid var(--k-title);border-radius:4px;padding:0 3px;font-style:normal;white-space:nowrap}
+.ig-bar{position:absolute;left:calc(var(--u,2px)*3.4);right:calc(var(--u,2px)*3.4);bottom:calc(var(--u,2px)*2.4);height:2px;background:var(--vl);border-radius:2px}
+.ig-bar u{display:block;height:100%;width:0;background:var(--k-title);border-radius:2px;transition:width 4.2s linear}
+.ig-bar.go u{width:100%}
+.hp{position:absolute;left:46%;top:26%;width:calc(var(--u,2px)*14);height:calc(var(--u,2px)*14);margin:calc(var(--u,2px)*-7) 0 0 calc(var(--u,2px)*-7);opacity:0;fill:#fff;pointer-events:none}
+.hp.pop{animation:vpop .95s ease forwards}
+@keyframes vpop{0%{transform:scale(.3);opacity:0}28%{transform:scale(1.12);opacity:.95}100%{transform:scale(1.35);opacity:0}}
+/* 3 lancement : un grand compte à rebours */
+.lc{display:grid;justify-items:center;gap:calc(var(--u,2px)*6)}
+.lc-n{position:relative;height:calc(var(--u,2px)*22);width:100%}
+.lc-n span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:500;font-size:calc(var(--u,2px)*20);line-height:1}
+.lc-r{display:flex;gap:calc(var(--u,2px)*5);justify-content:center;flex-wrap:wrap}
+.lc-r span{display:inline-flex;align-items:center;gap:calc(var(--u,2px)*2);color:var(--k-sub)}
+.tk{position:relative;display:inline-block;flex:none;width:calc(var(--u,2px)*3.8);height:calc(var(--u,2px)*3.8);min-width:8px;min-height:8px;border-radius:50%;background:var(--k-title)}
+/* 4 garantie : 90 jours */
+.gr{display:grid;gap:calc(var(--u,2px)*4)}
+.gr-n{display:flex;align-items:baseline;gap:calc(var(--u,2px)*2.4)}
+.gr-n b{font-family:var(--serif);font-weight:500;font-size:calc(var(--u,2px)*21);line-height:1;font-variant-numeric:tabular-nums}
+.gr-n em{font-style:normal;color:var(--k-sub);font-size:max(11px,calc(var(--u,2px)*5))}
+.gr-l{display:block;height:1px;background:var(--vl)}
+.gr-l u{display:block;height:100%;width:0;background:var(--k-title);transition:width 3.4s cubic-bezier(.4,0,.2,1)}
+.gr-l.go u{width:100%}
+
+/* 1 création : le site qui se monte, puis le clavier */
+.mk2{position:relative;border:1px solid var(--vl);border-radius:calc(var(--u,2px)*3);background:var(--vb);padding:calc(var(--u,2px)*2.2);display:grid;gap:calc(var(--u,2px)*1.8);margin-bottom:calc(var(--u,2px)*4)}
+.mk-top{display:flex;align-items:center;gap:calc(var(--u,2px)*1.4)}
+.mk-top b{width:calc(var(--u,2px)*1.7);height:calc(var(--u,2px)*1.7);min-width:4px;min-height:4px;border-radius:50%;background:var(--vl)}
+.mk-url{margin-left:calc(var(--u,2px)*1.6);flex:1;max-width:46%;height:calc(var(--u,2px)*3);border-radius:99px;background:var(--vl)}
+.mk-hero{height:calc(var(--u,2px)*9);border-radius:calc(var(--u,2px)*2);background:linear-gradient(135deg,color-mix(in srgb,var(--k-title) 17%,transparent),color-mix(in srgb,var(--k-title) 4%,transparent))}
+.mk-row{display:flex;gap:calc(var(--u,2px)*2);align-items:center}
+.mk-row i{flex:1;height:calc(var(--u,2px)*4.2);border-radius:calc(var(--u,2px)*1.6);background:var(--vl)}
+.mk-btn{display:block;width:28%;height:calc(var(--u,2px)*3.8);border-radius:99px;background:var(--k-title)}
+.mk2 .chip3{position:absolute;right:calc(var(--u,2px)*3);top:calc(var(--u,2px)*-3.2);margin:0;align-self:auto;padding:calc(var(--u,2px)*1.5) calc(var(--u,2px)*3.6);background:var(--vbg)}
+/* 2 convaincre : des commentaires arrivent au-dessus du Reel */
+.cmts{position:absolute;left:0;right:0;bottom:calc(var(--u,2px)*1);height:calc(var(--u,2px)*48);z-index:3;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 26%);mask-image:linear-gradient(to bottom,transparent,#000 26%)}
+.cmt{position:absolute;bottom:0;left:0;width:fit-content;max-width:96%;display:flex;align-items:center;gap:calc(var(--u,2px)*2);padding:calc(var(--u,2px)*2) calc(var(--u,2px)*4) calc(var(--u,2px)*2) calc(var(--u,2px)*2);border:1px solid var(--vl);border-radius:99px;background:color-mix(in srgb,var(--k-title) 12%,var(--vbg));font-size:.86em;line-height:1.1;white-space:nowrap;transition:opacity .6s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.cmt:nth-child(2){left:auto;right:0}
+.cmt:nth-child(3){left:7%}
+.cmt .av{flex:none;width:calc(var(--u,2px)*5.4);height:calc(var(--u,2px)*5.4);min-width:9px;min-height:9px;background-size:cover;background-position:center;box-shadow:0 0 0 1.5px color-mix(in srgb,var(--k-title) 55%,transparent)}
+.cmt b{font-weight:500;margin-right:.4em}
+.cmt span{color:var(--k-sub)}
+.cmt b+span{color:inherit}
+.viz .cmt[data-t-on]{transform:translateY(calc(var(--u,2px)*8));opacity:0}
+.viz .cmt[data-t-on].on{transform:none;opacity:1}
+.viz .cmt[data-t-on].on.up1{transform:translateY(calc(var(--u,2px)*-15))}
+.viz .cmt[data-t-on].on.up2{transform:translateY(calc(var(--u,2px)*-30));opacity:.5}
+.viz[data-v="1"]{justify-content:flex-start}
+.viz[data-v="0"],.viz[data-v="1"],.viz[data-v="2"]{margin-bottom:calc(var(--u,2px)*9)}
+/* 3 lancement : on suit l'icône sur la route, des panneaux arrivent au-dessus */
+.road{position:absolute;left:0;right:0;top:20%;bottom:0;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 34%);mask-image:linear-gradient(to bottom,transparent,#000 34%)}
+.road svg{display:block;width:100%;height:100%}
+.dash{position:absolute;left:50%;top:0;width:calc(var(--u,2px)*1.3);height:calc(var(--u,2px)*3.2);margin-left:calc(var(--u,2px)*-.65);background:var(--k-title);border-radius:2px;opacity:0;transform-origin:50% 0}
+.road.on .dash{animation:vdash 1.5s linear infinite}
+.road.halt .dash{animation-play-state:paused;opacity:0 !important;transition:opacity .6s}
+@keyframes vdash{0%{transform:translateY(0) scale(.3,.3);opacity:0}15%{opacity:.75}100%{transform:translateY(calc(var(--u,2px)*58)) scale(1.5,2.4);opacity:0}}
+.gps-w{position:absolute;left:50%;bottom:2%;transform:translateX(-50%);z-index:2;display:flex;align-items:flex-end;gap:calc(var(--u,2px)*3.2)}
+.viz .gps[data-t-on]{position:relative;width:calc(var(--u,2px)*14.6);height:calc(var(--u,2px)*14.6);border-radius:50%;background:var(--k-title);color:var(--vbg);display:flex;align-items:center;justify-content:center}
+.viz .gd[data-t-on]{position:relative;width:calc(var(--u,2px)*14.6);height:calc(var(--u,2px)*14.6);border-radius:50%;border:1.5px solid var(--k-title);color:var(--k-title);background:var(--vbg);display:flex;align-items:center;justify-content:center}
+.gd i{display:block;width:56%;height:56%;background:currentColor;-webkit-mask:var(--mkm) center/contain no-repeat;mask:var(--mkm) center/contain no-repeat}
+.gd.n1{animation:vn1 .8s ease}.gd.n2{animation:vn2 .8s ease}.gd.n3{animation:vn3 .8s ease}.gd.n4{animation:vn4 .8s ease}
+@keyframes vn1{40%{transform:translateY(calc(var(--u,2px)*-3))}}@keyframes vn2{40%{transform:translateY(calc(var(--u,2px)*-3))}}@keyframes vn3{40%{transform:translateY(calc(var(--u,2px)*-3))}}@keyframes vn4{40%{transform:translateY(calc(var(--u,2px)*-3))}}
+.gps svg{width:58%;height:58%;fill:currentColor}
+.vline{position:absolute;left:50%;top:9%;bottom:calc(var(--u,2px)*18);width:2px;margin-left:-1px;border-radius:2px;background:color-mix(in srgb,var(--k-title) 78%,transparent);transform-origin:50% 100%;transform:scaleY(0);transition:transform 1.5s cubic-bezier(.4,0,.2,1)}
+.vline.lx{transform:scaleY(1)}
+.sg{position:absolute;left:50%;top:8%;transform:translate(-50%,0) scale(.3);transform-origin:50% 100%;opacity:0;transition:transform 1.5s cubic-bezier(.5,0,.9,.6),opacity .5s ease}
+.sg.sa{opacity:1}
+.sg.sb{transform:translate(-50%,-30%) scale(1.25);opacity:0;transition:transform 1.7s cubic-bezier(.35,0,.7,.75),opacity .5s ease 1.25s}
+.sg.sc{transform:translate(-50%,0) scale(1);opacity:1;transition:transform 1.9s cubic-bezier(.2,.7,.2,1),opacity .5s ease}
+.sg-p{display:flex;align-items:center;justify-content:center;gap:calc(var(--u,2px)*1.6);padding:calc(var(--u,2px)*2.2) calc(var(--u,2px)*5.4);border:1px solid color-mix(in srgb,var(--k-title) 55%,transparent);border-radius:calc(var(--u,2px)*2.4);background:var(--vbg);white-space:nowrap;text-align:center}
+.sg.sc .sg-p{background:var(--k-title);color:var(--vbg);border-color:var(--k-title)}
+/* 3 accompagnement : une conversation WhatsApp avec un seul interlocuteur */
+.wa-h{display:flex;align-items:center;gap:calc(var(--u,2px)*2.4);padding:0 0 calc(var(--u,2px)*2.1);margin-bottom:calc(var(--u,2px)*2.1);border-bottom:1px solid var(--vl)}
+.wa-av{flex:none;width:calc(var(--u,2px)*8.2);height:calc(var(--u,2px)*8.2);min-width:18px;min-height:18px;border-radius:50%;background:var(--vb);border:1px solid var(--vl);display:flex;align-items:center;justify-content:center}
+.wa-av i{display:block;width:58%;height:58%;background:var(--k-title);-webkit-mask:var(--mkm) center/contain no-repeat;mask:var(--mkm) center/contain no-repeat}
+.wa-h b{display:block;font-weight:500;line-height:1.1}
+.wa-h em{display:block;font-style:normal;color:var(--k-sub);font-size:.78em;line-height:1.2;margin-top:2px}
+.wa-on{margin-left:auto;display:flex;align-items:center;gap:calc(var(--u,2px)*1.6);font-size:.74em;color:var(--k-sub)}
+.wa{display:grid;gap:calc(var(--u,2px)*1.6)}
+.wa-b{position:relative;width:fit-content;max-width:88%;padding:calc(var(--u,2px)*2.1) calc(var(--u,2px)*3.2) calc(var(--u,2px)*4.5);border-radius:calc(var(--u,2px)*3.2);border:1px solid var(--vl);background:color-mix(in srgb,var(--k-title) 11%,var(--vbg));font-size:.82em;line-height:1.2}
+.wa-b.me{justify-self:end;background:color-mix(in srgb,#3cae7a 30%,var(--vbg));border-color:color-mix(in srgb,#3cae7a 42%,transparent)}
+.wa-tx{opacity:0;transition:opacity .45s ease}
+.wa-tx.tx{opacity:1}
+.wa-t{position:absolute;right:calc(var(--u,2px)*3);bottom:calc(var(--u,2px)*1.6);display:flex;align-items:center;gap:3px;font-size:.7em;color:var(--k-sub);line-height:1}
+.wa-t svg{width:1.25em;height:1.25em;fill:none;stroke:#6cc4f0;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.wa-d{position:absolute;left:calc(var(--u,2px)*3.6);top:50%;margin-top:-3px;display:flex;gap:4px;transition:opacity .25s ease}
+.wa-d.off{opacity:0}
+.wa-d i{width:5px;height:5px;border-radius:50%;background:var(--k-sub);animation:vdot 1s ease-in-out infinite}
+.wa-d i:nth-child(2){animation-delay:.15s}.wa-d i:nth-child(3){animation-delay:.3s}
+@keyframes vdot{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-3px);opacity:1}}
+@media (max-width:699px){.wa-h,.wa .wa-b:first-child,.wa-t{display:none}.wa-b{padding-bottom:calc(var(--u,2px)*2.4)}}
+@media (prefers-reduced-motion:reduce){.viz [data-t-on],.kk,.ig-bar u,.gr-l u{transition:none}.r.run .st,.dot:after{animation:none}}
+
+/* ------------------------------------------------------------
+   UNIQUEMENT SI LES CARTES 01 ET 02 SONT « VOLANTES » (animation d'arrivée
+   depuis la section message). Sinon, supprimer ces deux règles.
+   - .fc  : carte en vol (l'animation n'y est pas jouée, zone cachée)
+   - .sc  : carte posée dans son emplacement ; .go = elle est arrivée
+   ------------------------------------------------------------ */
+.fc .viz,.sc:not(.go) .viz{opacity:0}
+.sc .viz{transition:opacity .6s ease}
