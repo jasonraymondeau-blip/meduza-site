@@ -779,9 +779,10 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
   .stack{margin-left:0;margin-right:0;width:auto}
 }
 
-/* --- Carte : reset complet + layout grid --- */
+/* --- Carte : sticky (superposition au scroll) + layout grid --- */
 .pcard{
-  position:relative !important;
+  position:sticky !important;
+  top:0 !important;
   display:grid !important;
   grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
   grid-template-rows:1fr !important;
