@@ -747,3 +747,17 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 @media (max-width:1023px){
   .pcard .pc-panel{top:auto;left:16px;right:16px;bottom:16px;width:auto;padding:24px}
 }
+/* Portfolio : fond bordeaux dégradé avec grain ; photo du projet à gauche en carré arrondi ; carré blanc à droite avec le texte */
+.pcard{background:url(assets/fond-portfolio.png) center/cover no-repeat;background-color:#2a0b10}
+.pcard .bg{position:absolute;top:24px;bottom:24px;left:24px;right:auto;width:calc(50% - 36px);height:auto;inset:auto;border-radius:5px !important}
+.pcard .bg img{height:100%;width:100%}
+.pcard .pc-panel{background:#fff;color:#111}
+.pcard .pc-panel::after{display:none}
+.pcard .pc-panel h3{color:#111}
+.pcard .pc-panel a{color:#111;border-bottom-color:rgba(17,17,17,.4)}
+@media (max-width:1023px){
+  .pcard .bg{top:16px;left:16px;right:16px;bottom:auto;width:auto;height:52%}
+}
+.pcard .bg{height:calc(100% - 48px)}
+@media (max-width:1023px){.pcard .bg{height:52%}}
+@media (min-width:1024px){.pcard .bg{left:24px;top:24px;bottom:auto;height:calc(100% - 48px)}}
