@@ -874,3 +874,8 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 /* Portfolio : marge autour de l'image (fond crème visible), coins arrondis */
 .pcard .bg{margin:20px 20px 20px 0;height:calc(100% - 40px);border-radius:5px !important}
 @media (max-width:1023px){.pcard .bg{margin:0;height:100%;border-radius:5px 5px 0 0 !important}}
+
+/* Portfolio : fond carte = fond section (f9f7f4), marge image plus large */
+.pcard{background:#f9f7f4}
+.pcard .bg{margin:36px 36px 36px 0;height:calc(100% - 72px)}
+@media (max-width:1023px){.pcard .bg{margin:0;height:100%}}
