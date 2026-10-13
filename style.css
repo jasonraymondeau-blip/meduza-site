@@ -689,7 +689,7 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 /* Contact : fond transparent, nuage à 30 %, titre en Cormorant */
 .dk-contact .ccard h2{font-family:var(--serif);font-weight:500;letter-spacing:-.01em}
 /* Carte contact = carte Services (même fond, même contour, même lumière au survol) */
-.dk-contact .ccard{background-color:#1d090c;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");border:1px solid rgba(255,255,255,.09);border-radius:8px}
+.dk-contact .ccard{background-color:#1d090c;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .12 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");border:1px solid rgba(255,255,255,.09);border-radius:8px}
 /* Contact (ordinateur) : deux colonnes ; à gauche photo + Vous et lien, à droite titre et texte */
 @media (min-width:761px){
   .dk-contact .ccard{display:grid;grid-template-columns:1fr 1fr;align-items:center;text-align:left;width:min(1200px,100%);gap:clamp(40px,6vw,96px);padding:clamp(56px,6vw,96px) clamp(40px,6vw,96px)}
@@ -699,3 +699,6 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
   .pair{justify-content:flex-start}
   .cmini .cbtn{justify-content:flex-start}
 }
+/* Contact : photo au-dessus de « Vous » quand elles se rapprochent */
+.dk-contact .pair .img.me{position:relative;z-index:2}
+.dk-contact .pair .you{position:relative;z-index:1}
