@@ -215,7 +215,7 @@
   }
 
   /* contact : la photo et « Vous » se rapprochent quand le pointeur approche du bouton */
-  (function(){var btn=document.querySelector('.dk-contact .cbtn'),me=document.querySelector('.dk-contact .pair .me'),you=document.querySelector('.dk-contact .pair .you');if(!btn||!me||!you)return;var t=0,tgt=0,raf=0;function paint(){me.style.transform='translateX('+(t*46).toFixed(1)+'px)';you.style.transform='translateX('+(-t*14).toFixed(1)+'px)'}function step(){t+=(tgt-t)*.12;if(Math.abs(tgt-t)<.001)t=tgt;paint();raf=t!==tgt?requestAnimationFrame(step):0}document.addEventListener('pointermove',function(e){var r=btn.getBoundingClientRect(),d=Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2));var n=Math.max(0,Math.min(1,1-(d-40)/260));if(n!==tgt){tgt=n;if(!raf)raf=requestAnimationFrame(step)}},{passive:true})})();
+  (function(){var btn=document.querySelector('.dk-contact .cbtn'),me=document.querySelector('.dk-contact .pair .me'),you=document.querySelector('.dk-contact .pair .you');if(!btn||!me||!you)return;var t=0,tgt=0,raf=0;function paint(){me.style.transform='translateX('+(t*46).toFixed(1)+'px)';you.style.transform='translateX('+(-t*14).toFixed(1)+'px)'}function step(){t+=(tgt-t)*.06;if(Math.abs(tgt-t)<.001)t=tgt;paint();raf=t!==tgt?requestAnimationFrame(step):0}document.addEventListener('pointermove',function(e){var r=btn.getBoundingClientRect(),d=Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2));var q=Math.max(0,Math.min(1,(170-d)/140)),n=q*q*(3-2*q);if(n!==tgt){tgt=n;if(!raf)raf=requestAnimationFrame(step)}},{passive:true})})();
 
   /* lumière qui suit la souris sur les cartes de Services */
   document.addEventListener('pointermove',function(e){
