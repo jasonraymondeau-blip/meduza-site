@@ -644,3 +644,24 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 /* Titre sur l'image : plus grand, plus gras */
 .pc-mid-t{font-size:clamp(44px,5.6vw,84px);font-weight:600}
 .pc-mid-s{font-size:15px}
+/* Contact : titre à gauche, photo + Vous, texte, disponibilité et bouton à droite */
+.dk-contact .ccard{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(28px,5vw,80px);width:min(1100px,100%);padding:clamp(40px,6vw,80px) clamp(28px,5vw,80px)}
+.dk-contact .ccard .cl{padding:0}
+.cmini{position:static;display:flex;flex-direction:column;align-items:flex-start;gap:0;background:none;border:0;box-shadow:none;padding:0;margin:0}
+.pair{display:flex;align-items:center;gap:14px}
+.pair .me,.pair .you{width:112px;height:112px;flex:none;border-radius:5px !important}
+.pair .img.me{border:0;background:#ddd;overflow:hidden;position:relative;min-height:0;height:112px}
+.pair .img.me img{object-fit:cover;object-position:50% 22%;width:100%;height:100%}
+.pair .img.me b{display:none}
+.pair .you{display:grid;place-items:center;border:1.5px dashed rgba(17,17,17,.45)}
+.pair .you .mono{color:#111}
+.cmini .p{margin:22px 0 0;max-width:34ch;color:#444}
+.avail{margin-top:22px;display:inline-flex;align-items:center;gap:10px;font-size:14px;color:#111}
+.avail .d{width:9px;height:9px;border-radius:50%;background:#1f9d57;animation:cblink 1.2s ease-in-out infinite}
+@keyframes cblink{0%,100%{opacity:1}50%{opacity:.15}}
+.cmini .cbtn{margin-top:26px;width:auto;justify-content:flex-start}
+@media (max-width:760px){.dk-contact .ccard{grid-template-columns:1fr;gap:32px}}
+/* Passe 6 : animations un peu plus petites ; chiffres 01/04 plus petits */
+.viz{zoom:.9}
+.big{font-size:max(22px,calc(var(--u,2px)*11.5))}
+.cmini{transform:none}
