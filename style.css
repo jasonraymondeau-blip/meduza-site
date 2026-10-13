@@ -909,3 +909,74 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
   .pcard .pc-panel .pc-desc{font-size:14px}
   .pcard .pc-panel a{margin-top:12px !important}
 }
+
+/* ============================================================
+   LOADER — écran de chargement
+   ============================================================ */
+#ldr{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;align-items:flex-end;justify-content:flex-start;
+  overflow:hidden;
+  pointer-events:all;
+}
+#ldr.done{pointer-events:none}
+
+/* Image de fond (la femme) */
+.ldr-bg{
+  position:absolute;inset:0;
+  background:url(assets/hero.jpg) center/cover no-repeat;
+  transform:scale(1.04);
+  transition:transform 1.6s cubic-bezier(.16,1,.3,1);
+}
+#ldr.done .ldr-bg{transform:scale(1)}
+
+/* Voile sombre sur l'image */
+#ldr::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.28) 60%, rgba(0,0,0,.1) 100%);
+  z-index:1;
+}
+
+/* Barre de progression */
+.ldr-bar{
+  position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:rgba(255,255,255,.15);z-index:3;
+}
+.ldr-fill{
+  height:100%;width:0%;
+  background:#fff;
+  transition:width .05s linear;
+}
+
+/* Compteur */
+.ldr-pct{
+  position:relative;z-index:3;
+  font-family:var(--mono,'monospace');
+  font-size:11px;letter-spacing:.2em;
+  color:rgba(255,255,255,.5);
+  padding:0 clamp(20px,4vw,56px) clamp(20px,3vh,36px);
+  line-height:1;
+  user-select:none;
+}
+
+/* Sortie du loader : glisse vers le haut */
+#ldr{
+  transition:transform .9s cubic-bezier(.76,0,.24,1), opacity .3s ease .7s;
+}
+#ldr.out{
+  transform:translateY(-100%);
+  opacity:0;
+}
+
+/* Éléments du site : cachés puis révélés en "smoke" */
+.hdr, .hero-box h1, .hero-box .p, .hero-box, .fab{
+  opacity:0;
+  transform:translateY(10px);
+  filter:blur(4px);
+  transition:opacity .9s ease, transform .9s ease, filter .9s ease;
+}
+.hdr.vis{ opacity:1; transform:translateY(0); filter:blur(0); }
+.hero-box.vis h1, .hero-box.vis .p{opacity:1;transform:translateY(0);filter:blur(0)}
+.hero-box.vis h1{transition-delay:.1s}
+.hero-box.vis .p{transition-delay:.25s}
+.fab.vis{opacity:1;transform:translateY(0);filter:blur(0);transition-delay:.35s}

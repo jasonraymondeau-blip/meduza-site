@@ -278,3 +278,66 @@
   window.addEventListener('resize',syncIntro);
   syncIntro();
 })();
+
+/* ============================================================
+   LOADER — barre de progression 0→100 puis reveal du site
+   ============================================================ */
+(function(){
+  var ldr=document.getElementById('ldr');
+  var fill=ldr&&ldr.querySelector('.ldr-fill');
+  var pct=ldr&&ldr.querySelector('.ldr-pct');
+  if(!ldr||!fill||!pct)return;
+
+  /* Masquer le site pendant le chargement */
+  var hdr=document.querySelector('.hdr');
+  var hbox=document.querySelector('.hero-box');
+  var fab=document.querySelector('.fab');
+
+  var progress=0;
+  var target=0;
+  var done=false;
+  var raf;
+
+  /* Durée totale ~1.8s : montée rapide puis plateau, puis sprint final */
+  var start=Date.now();
+  var dur=1800;
+
+  function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
+
+  function tick(){
+    var elapsed=Date.now()-start;
+    var t=Math.min(1,elapsed/dur);
+    /* Ralentit à 90% puis attend window.load pour finir */
+    target=done?100:Math.min(90,ease(t)*92);
+    progress+=(target-progress)*.12;
+    var v=Math.round(progress);
+    fill.style.width=v+'%';
+    pct.textContent=v;
+    if(v<100){raf=requestAnimationFrame(tick)}
+    else{finish()}
+  }
+
+  function finish(){
+    fill.style.width='100%';
+    pct.textContent='100';
+    ldr.classList.add('done');
+    setTimeout(function(){
+      ldr.classList.add('out');
+      /* Reveal smoke des éléments */
+      if(hdr) hdr.classList.add('vis');
+      setTimeout(function(){
+        if(hbox) hbox.classList.add('vis');
+        if(fab) fab.classList.add('vis');
+      },200);
+      /* Supprimer le loader du DOM après l'animation */
+      setTimeout(function(){ldr.remove()},1200);
+    },280);
+  }
+
+  /* Lancer la barre dès le début */
+  raf=requestAnimationFrame(tick);
+
+  /* Quand tout est chargé, autoriser le sprint final */
+  if(document.readyState==='complete'){done=true}
+  else{window.addEventListener('load',function(){done=true})}
+})();
