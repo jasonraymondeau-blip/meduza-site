@@ -665,3 +665,5 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 .viz{zoom:.9}
 .big{font-size:max(22px,calc(var(--u,2px)*11.5))}
 .cmini{transform:none}
+/* Carte Coutant : bord droit de l'image estompé pour ne plus laisser dépasser une lettre */
+.pcard .bg[data-slot="project-3"] img{-webkit-mask-image:linear-gradient(to right,#000 80%,transparent 100%);mask-image:linear-gradient(to right,#000 80%,transparent 100%)}
