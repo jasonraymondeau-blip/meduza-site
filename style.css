@@ -736,3 +736,14 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 @media (max-width:1023px){.pcard{height:72vh}}
 /* Sac Coutant : cadrage pour voir les sacs en entier */
 .pcard .bg[data-slot="project-3"] img{object-position:50% 80%}
+/* Portfolio : image entière, et un carré arrondi sur la moitié droite (fond rouge bordeaux avec grain) */
+.pcard .pc-mid{display:none}
+.pcard .pc-panel{display:flex;position:absolute;top:24px;right:24px;bottom:24px;left:auto;width:calc(50% - 36px);height:auto;z-index:2;padding:clamp(28px,3vw,44px);justify-content:flex-end;background:url(assets/fond-portfolio.png) center/cover no-repeat;border-radius:5px;color:#fff;overflow:hidden}
+.pcard .pc-panel::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");pointer-events:none}
+.pcard .pc-panel>*{position:relative;z-index:1}
+.pcard .pc-ico{display:none}
+.pcard .pc-panel h3{color:#fff;margin:0}
+.pcard .pc-panel a{color:#fff;border-bottom-color:rgba(255,255,255,.5);margin-top:16px}
+@media (max-width:1023px){
+  .pcard .pc-panel{top:auto;left:16px;right:16px;bottom:16px;width:auto;padding:24px}
+}
