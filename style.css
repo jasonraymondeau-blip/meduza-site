@@ -727,3 +727,12 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 .cmini .cbtn:hover{background:none;border-color:transparent;transform:none;opacity:.7}
 /* Photo et Vous passent au-dessus du + quand on approche le bouton */
 .dk-contact .pair .plus{z-index:0}
+/* Portfolio : image complète plein cadre, titre centré, lumière qui suit le contour au survol */
+.pcard{display:block;background:#111;height:clamp(420px,70vh,620px);border-radius:5px}
+.pcard .bg{position:absolute;inset:0;order:0;height:auto;border-radius:5px !important;overflow:hidden}
+.pcard .pc-panel{display:none}
+.pcard.spot:after{display:block;inset:0;border-radius:5px;padding:1.5px;background:radial-gradient(260px circle at var(--mx) var(--my),#fff,rgba(255,255,255,.35) 55%,transparent 75%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:var(--glow,0);transition:opacity .35s ease;z-index:3}
+.pcard.spot:hover{--glow:1}
+@media (max-width:1023px){.pcard{height:72vh}}
+/* Sac Coutant : cadrage pour voir les sacs en entier */
+.pcard .bg[data-slot="project-3"] img{object-position:50% 80%}
