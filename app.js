@@ -264,3 +264,17 @@
     pxScroll();
   })();
 })();
+
+/* Cache le texte intro dès que la première carte arrive à l'écran */
+(function(){
+  var it=document.getElementById('intro');
+  var c0=document.querySelector('.pcard');
+  if(!it||!c0)return;
+  it.style.transition='opacity .35s ease';
+  function syncIntro(){
+    it.style.opacity=c0.getBoundingClientRect().top<=200?'0':'';
+  }
+  window.addEventListener('scroll',syncIntro,{passive:true});
+  window.addEventListener('resize',syncIntro);
+  syncIntro();
+})();
