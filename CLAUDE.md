@@ -19,3 +19,6 @@ Projet : site Meduza (agence digitale à Maurice), statique, sans framework (`in
 - Sur iPhone, des `requestAnimationFrame` peuvent être abandonnés : garder les filets `setTimeout` de `onS()` / `kick()`.
 - Les styles ajoutés tard dans `style.css` écrasent les anciens : chercher d'abord une règle existante (`grep`) avant d'en ajouter, et se méfier des règles de media query qui écrasent (ex. `.pts`, `.intro h2`).
 - Un masque CSS (`mask`) ne charge pas un fichier externe en `file://` : les logos `--logo` / `--mk` restent en data-URI.
+- Serveur local : garder le même port d'une modif à l'autre, ne pas en relancer un nouveau à chaque fois.
+- Avec Playwright, le cache disque du navigateur peut servir une version périmée de `app.js`/`style.css` même avec `Network.setCacheDisabled` seul : ajouter aussi `Network.clearBrowserCache` avant de naviguer pour être sûr de voir le fichier à jour.
+- `cartes-interactions.css`/`.js` (mini-interfaces des cartes Services) sont des fichiers autonomes fournis par Jason : ne pas les réécrire à la main, les traiter comme une librairie externe (voir HANDOFF.md §5).
