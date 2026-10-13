@@ -578,7 +578,7 @@ h4{font-size:var(--h4);line-height:1.3}
 /* Clavier de la carte 01 : tout tient dans la carte (plus de touche coupée à droite) */
 @media (max-width:1023px){h2{font-size:clamp(30px,8.6vw,40px)}.kt h3,.pc-panel h3,.ask h3{font-size:clamp(19px,5.4vw,26px)}}
 /* Passe 3 : clavier décalé à droite (partiellement caché), titres en Cormorant */
-.viz .kbd{margin-left:calc(var(--u,2px)*3)}
+.viz .kbd{zoom:.8;margin-left:calc(var(--u,2px)*3);margin-right:0;-webkit-mask-image:none;mask-image:none}
 h1,h2,h3,h4{font-family:var(--serif);font-weight:500}
 .pc-panel h3,.kt h3,.ask h3{font-weight:500}
 /* Colonne Meduza : apparaît en fondu avec les lignes, sans changement de couleur */
@@ -596,7 +596,7 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
   .intro h2 span{display:inline}
 }
 /* Passe arrondis : 2 px partout (retour Jason) ; seuls les ronds restent ronds */
-*{border-radius:2px !important}
+*{border-radius:5px !important}
 .menu .dot,.cta i,.fab,.inf,.chip i,.chk b,.who .img,.chip2 i,.chev,.orb .r,.cmini .mk-status .d,
 .st,.dot,.av,.tk,.mk-top b,.gps,.gd,.wa-av,.wa-d i{border-radius:50% !important}
 .kt p{text-wrap:balance}
