@@ -702,3 +702,8 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 /* Contact : photo au-dessus de « Vous » quand elles se rapprochent */
 .dk-contact .pair .img.me{position:relative;z-index:2}
 .dk-contact .pair .you{position:relative;z-index:1}
+/* Contact : fond plus foncé ; lien « On en discute » avec chevron, centré sous le + */
+.dk-contact .ccard{background-color:#120407}
+@media (min-width:761px){.cmini{align-items:center}.cmini .cbtn{justify-content:center;align-self:center}}
+.cmini .cbtn{justify-content:center}
+.cmini .cbtn i{display:inline-flex;width:auto;height:auto;border:0;border-radius:0 !important;opacity:.9}
