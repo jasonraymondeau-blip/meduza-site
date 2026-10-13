@@ -3,7 +3,10 @@
 > État au 13 octobre 2026 (mis à jour après la session de retouches visuelles du 12-13/10). Site d'une agence digitale à Maurice (sites, apps, campagne de lancement). Fondateur : Jason (côté développement). La partie communication / UGC est tenue par sa conjointe (@boun_in_mauritius).
 
 ## 0. Où on en est / où on va (lire en premier)
-Dépôt GitHub du projet : https://github.com/jasonraymondeau-blip/meduza-site (privé). Tout ce qui a été testé en local (`http://localhost:8141`) est poussé sur `main`, rien en attente.
+Dépôt GitHub du projet : https://github.com/jasonraymondeau-blip/meduza-site (privé).
+**Site officiel et complet (à garder comme référence) : https://jasonraymondeau-blip.github.io/meduza-site/**
+Le workflow `.github/workflows/` (« Deploy to GitHub Pages ») se déclenche **uniquement sur un push sur `main`** : c'est ce push qui met le site en ligne. Il ne copie que `index.html`, `app.js`, `style.css`, `cartes-interactions.css/js` (pas le dossier `assets/`).
+Tout ce qui a été testé en local (`http://localhost:8141`) est poussé sur `main`, rien en attente.
 
 **Fait pendant la session du 12-13/10 :**
 - Hero, cartes Services, tableau comparatif, section Réalisations, section Contact : nombreuses retouches visuelles (voir section 3 ci-dessous, mise à jour).
