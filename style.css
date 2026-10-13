@@ -1010,8 +1010,8 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
   .offer{overflow-x:clip}
 }
 
-/* Point « Disponible » : bordeaux clair au lieu du vert */
-.avail .d{background:#d44e68}
+/* Bulle « Validé, on lance ! » (Accompagnement) : bordeaux clair au lieu du vert */
+.wa-b.me{background:color-mix(in srgb,#c04060 30%,#230b0f) !important;border-color:color-mix(in srgb,#c04060 42%,transparent) !important}
 
 /* Bouton « On en discute » : transparent blanc, Inter, discret */
 .cmini .cbtn{
