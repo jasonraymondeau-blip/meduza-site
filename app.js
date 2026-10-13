@@ -244,4 +244,23 @@
   window.addEventListener('resize',init);
   window.addEventListener('load',init);
   init();
+  /* Parallax image dans les cartes portfolio */
+  (function(){
+    var cards=Array.from(document.querySelectorAll('.pcard'));
+    if(!cards.length)return;
+    var imgs=cards.map(function(c){return c.querySelector('.bg img')});
+    function pxScroll(){
+      var H=window.innerHeight;
+      cards.forEach(function(c,i){
+        var img=imgs[i];if(!img)return;
+        var r=c.getBoundingClientRect();
+        var progress=(H-r.top)/(H+r.height);
+        var p=Math.max(0,Math.min(1,progress));
+        img.style.transform='translateY('+(-p*10).toFixed(2)+'%)';
+      });
+    }
+    window.addEventListener('scroll',pxScroll,{passive:true});
+    window.addEventListener('resize',pxScroll);
+    pxScroll();
+  })();
 })();
