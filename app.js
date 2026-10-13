@@ -3,7 +3,7 @@
   /* ============ À MODIFIER ============ */
   var WA_NUMBER='';   // numéro WhatsApp au format international, sans le +, ex. '23057000000'
   var WA_TEXT="Bonjour Meduza, j'ai un projet de site ou d'application et j'aimerais en parler.";
-  var IMAGES={'about-1':'assets/about-1.jpg',avatar:'assets/avatar.jpg',whyus:'assets/whyus.jpg',hero:'assets/hero.jpg','hero-wide':'assets/hero-wide.jpg','project-1':'assets/projet-zafer.jpg','project-2':'assets/projet-boun.jpg','project-3':'assets/projet-coutant.jpg'};      // ex. {hero:'images/hero.jpg','about-1':'images/about-1.jpg'} (clés = data-slot) — project-1 : test temporaire
+  var IMAGES={'about-1':'assets/about-1.jpg',avatar:'assets/avatar.jpg',whyus:'assets/whyus.jpg',hero:'assets/hero.jpg','hero-wide':'assets/hero-wide.jpg','project-1':'assets/projet-zafer.jpg','project-2':'assets/projet-boun-portrait.webp','project-3':'assets/projet-coutant.jpg'};      // ex. {hero:'images/hero.jpg','about-1':'images/about-1.jpg'} (clés = data-slot) — project-1 : test temporaire
   /* ==================================== */
 
   function clamp(x,a,b){return Math.max(a,Math.min(b,x))}
