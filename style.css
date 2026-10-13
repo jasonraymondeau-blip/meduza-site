@@ -595,3 +595,8 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
   .intro h2{font-size:3.9vw;white-space:nowrap}
   .intro h2 span{display:inline}
 }
+/* Passe arrondis : 2 px partout (retour Jason) ; seuls les ronds restent ronds */
+*{border-radius:2px !important}
+.menu .dot,.cta i,.fab,.inf,.chip i,.chk b,.who .img,.chip2 i,.chev,.orb .r,.cmini .mk-status .d,
+.st,.dot,.av,.tk,.mk-top b,.gps,.gd,.wa-av,.wa-d i{border-radius:50% !important}
+.kt p{text-wrap:balance}
