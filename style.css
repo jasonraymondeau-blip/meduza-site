@@ -202,7 +202,7 @@ html.is-light .cmp{--pb:#38060b;--pf:#38060b}
 .pts div span{display:block;margin-top:2px}
 .pts b{font-size:15px}
 .ico svg{display:block}
-.stack{position:relative;margin-top:45vh}
+.stack{position:relative;margin-top:45vh;padding-bottom:clamp(80px,12vh,160px)}
 .pcard{color:#fff;position:sticky;z-index:calc(2 + var(--i));top:calc(env(safe-area-inset-top,0px) + 92px + var(--i)*26px);margin-bottom:40px;height:clamp(460px,88vh,840px);background:#111;border:0;border-radius:18px;overflow:hidden}
 .pcard:last-child{margin-bottom:0}
 .pcard .bg{position:absolute;inset:0;border:0;border-radius:0;align-items:flex-start;justify-content:flex-start;padding:0}
