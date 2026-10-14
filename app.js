@@ -43,8 +43,9 @@
   var fl=[0,1].map(function(i){
     var c=document.createElement('div');c.className='card fc spot';
     c.innerHTML='<div class="detail">'+kcard(i)+'</div>';layer.appendChild(c);
-    var fw=document.createElement('div');fw.className='fw';fw.textContent=DATA[i].w;layer.appendChild(fw);
-    return {i:i,el:c,fw:fw,h3:$('h3',c)};
+    var fw=document.createElement('div');fw.className='fw';fw.textContent=DATA[i].w;fw.style.opacity='0';layer.appendChild(fw);
+    var h3=$('h3',c);h3.style.opacity='0';
+    return {i:i,el:c,fw:fw,h3:h3};
   });
   /* une fois arrivées, les cartes 01 et 02 sont posées dans leur emplacement (elles défilent avec la page) */
   fl.forEach(function(f,i){
