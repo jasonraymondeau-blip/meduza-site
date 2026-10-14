@@ -642,13 +642,13 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:500}
 @media (min-width:1024px){
   .stack{margin-left:16px;margin-right:16px;padding-bottom:200px}
   .pcard{height:clamp(580px,88vh,920px);top:calc(env(safe-area-inset-top,0px) + 80px + var(--i)*14px)}
-  .pcard .bg img{object-fit:cover;transform:scale(1.05)}
-  .pcard:hover .bg img{transform:scale(1.05)}
+  .pcard .bg img{object-fit:cover;transform:scale(1.05);transition:transform .6s ease}
+  .pcard:hover .bg img{transform:scale(1.12)}
   .pcard:nth-child(1){transform:rotate(-1.8deg) translateX(-54px)}
   .pcard:nth-child(2){transform:rotate(1.4deg) translateX(48px) translateY(-14px)}
   .pcard:nth-child(3){transform:rotate(-1.2deg) translateX(-44px) translateY(-8px)}
-  .pcard .bg::after{background-color:transparent;transition:background-color .45s ease}
-  .pcard:hover .bg::after{background-color:rgba(0,0,0,.42)}
+  .pcard .bg::after{background-color:transparent}
+  .pcard:hover .bg::after{background-color:transparent}
   .pc-logo-wrap{flex-direction:column;gap:8px}
   .pc-cta{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.88);opacity:0;transform:translateY(10px);transition:opacity .4s ease,transform .4s ease}
   .pcard:hover .pc-cta{opacity:1;transform:translateY(0)}
