@@ -67,13 +67,13 @@ h2{font-size:clamp(26px,3vw,32px);line-height:1.12}
 .nr{display:flex;align-items:center;font-size:15px}
 .cta{background:transparent;color:var(--fg);border:1px solid var(--fgline);padding:8px 16px;border-radius:99px;font-size:13px;font-weight:400;text-decoration:none;white-space:nowrap}
 .cta:hover{opacity:.88}
-.burger{background:none;border:none;padding:4px 2px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg);font-weight:700;opacity:.88;cursor:pointer;line-height:1;font-family:var(--sans)}
+.burger{background:none;border:none;outline:none;padding:4px 2px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg);font-weight:700;opacity:.88;cursor:pointer;line-height:1;font-family:var(--sans)}
 .burger[aria-expanded=true]{opacity:1}
 html.is-light .burger{color:#111}
 html:not(.is-light) .burger{color:#fff}
 /* Menu — rectangle flottant ancré haut-droite */
 .menu{position:fixed;top:calc(env(safe-area-inset-top,0px) + 76px + 5px);right:20px;bottom:132px;left:auto;width:calc(58% - 70px);z-index:200;display:flex;flex-direction:row;border-radius:0;overflow:visible;opacity:0;visibility:hidden;transform:translateY(-8px) scale(.98);transform-origin:top right;transition:opacity .4s ease,transform .4s cubic-bezier(.22,.8,.24,1),visibility 0s .4s}
-.menu.open{opacity:1;visibility:visible;transform:none;transition:opacity .4s ease,transform .4s cubic-bezier(.22,.8,.24,1),visibility 0s;filter:drop-shadow(0 6px 28px rgba(0,0,0,.28))}
+.menu.open{opacity:1;visibility:visible;transform:none;transition:opacity .4s ease,transform .4s cubic-bezier(.22,.8,.24,1),visibility 0s;filter:drop-shadow(0 6px 28px rgba(0,0,0,.15))}
 body.menu-open{overflow:hidden}
 #main{transition:filter .4s ease}
 body.menu-open #main{filter:blur(3px) brightness(.82)}
