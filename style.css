@@ -720,13 +720,11 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 /* Sac Coutant : cadrage pour voir les sacs en entier */
 .pcard .bg[data-slot="project-3"] img{object-position:50% 25%}
 
-/* Mobile : image remontée pour éviter le sol clair sous le texte */
+/* Mobile : Zafer image ancrée en bas pour montrer le sol blanc sous le texte noir */
 @media (max-width:699px){
   .pcard .bg img{transform-origin:50% 5%}
+  .pcard .bg[data-slot="project-1"] img{transform-origin:50% 90%}
 }
-
-/* Logo texte Boun */
-.pc-boun-logo{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(36px,5.5vw,80px);color:#fff;letter-spacing:.01em;text-align:center;line-height:1;white-space:nowrap}
 
 /* Texte portfolio : sans blur, gras */
 .pcard:nth-child(1) .pc-panel{color:#111}
