@@ -260,6 +260,27 @@
   syncIntro();
 })();
 
+/* Animation smoke — tous les textes du site */
+(function(){
+  var SEL='h2:not(.w),h3,p.p,.pts li,blockquote,.who,.avail,.cmini,.ah p,.faq-l h3,.fgrid p';
+  document.querySelectorAll(SEL).forEach(function(el){
+    if(el.closest('#top,#text,.cmp,.hdr'))return;
+    el.classList.add('fx');
+  });
+  // stagger pour .pts li
+  document.querySelectorAll('.pts li').forEach(function(el,i){
+    if(i>0)el.setAttribute('data-d',String(i));
+  });
+  var all=document.querySelectorAll('.fx');
+  if(!all.length)return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}
+    });
+  },{threshold:.12,rootMargin:'0px 0px -2% 0px'});
+  all.forEach(function(el){io.observe(el)});
+})();
+
 /* Rotation sticky sur mobile : les cartes arrivent droites puis pivotent une fois collées */
 (function(){
   var cards=document.querySelectorAll('.pcard');
