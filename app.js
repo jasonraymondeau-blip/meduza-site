@@ -296,3 +296,102 @@
   addEventListener('resize',upd);
   upd();
 })();
+
+/* ===== PAGES PORTFOLIO ===== */
+(function(){
+  var PROJ = [
+    {
+      label: 'Projet Zafer',
+      h1: 'L\'app des mauriciens',
+      tagline: '6 000 téléchargements · 3 500 inscrits',
+      bg: 'assets/projet-zafer.jpg',
+      logo: 'assets/logo-zafer.png',
+      type: 'Application mobile',
+      desc: 'Une app pensée pour le marché mauricien, de la conception jusqu\'au lancement.',
+      stats: [{n:'+6 000',l:'téléchargements'},{n:'3 500',l:'inscrits'}],
+      tags: ['Design UI/UX','Développement','Stratégie de lancement']
+    },
+    {
+      label: 'boun in mauritius',
+      h1: 'Une communauté créée de zéro',
+      tagline: '12 000 abonnés',
+      bg: 'assets/projet-boun-portrait.webp',
+      logo: 'assets/logo-boun.png',
+      type: 'Stratégie & contenu Instagram',
+      desc: 'Stratégie de contenu, direction visuelle et campagnes UGC sur Instagram.',
+      stats: [{n:'+12 000',l:'abonnés'}],
+      tags: ['Direction artistique','Stratégie de contenu','UGC'],
+      img2: 'assets/projet-boun.jpg'
+    },
+    {
+      label: 'Coutant',
+      h1: 'Un site à l\'image de la marque',
+      tagline: '+40 ventes directes par le site',
+      bg: 'assets/projet-coutant.jpg',
+      logo: 'assets/logo-coutant.webp',
+      type: 'Site web & e-commerce',
+      desc: 'Un site artisanal qui incarne l\'identité de la marque et génère des ventes.',
+      stats: [{n:'+40',l:'ventes par le site'}],
+      tags: ['Design','Développement']
+    }
+  ];
+
+  var detail = document.getElementById('proj-detail');
+  var scroll = document.getElementById('proj-scroll');
+  var closeBtn = document.getElementById('proj-close');
+  if(!detail || !closeBtn) return;
+
+  function buildContent(p) {
+    var stats = p.stats.map(function(s){
+      return '<div class="pc-stat"><b class="pc-stat-n">'+s.n+'</b><span class="pc-stat-l">'+s.l+'</span></div>';
+    }).join('');
+    var tags = p.tags.map(function(t){
+      return '<span class="pc-tag">'+t+'</span>';
+    }).join('');
+    var img2 = p.img2 ? '<div class="pc-img2"><img src="'+p.img2+'" alt="'+p.label+'" loading="lazy"></div>' : '';
+    return '<img class="pc-logo-img" src="'+p.logo+'" alt="'+p.label+'">'
+      + '<p class="pc-type">'+p.type+'</p>'
+      + '<p class="pc-desc">'+p.desc+'</p>'
+      + '<div class="pc-stats">'+stats+'</div>'
+      + '<div class="pc-tags">'+tags+'</div>'
+      + img2
+      + '<div class="pc-cta-block"><a data-wa href="#contact">Démarrer un projet similaire</a></div>';
+  }
+
+  function openProj(idx) {
+    var p = PROJ[idx];
+    if(!p) return;
+    document.getElementById('proj-bg').src = p.bg;
+    document.getElementById('proj-bg').alt = p.label;
+    document.getElementById('proj-hlabel').textContent = p.label;
+    document.getElementById('proj-h1').textContent = p.h1;
+    document.getElementById('proj-tagline').textContent = p.tagline;
+    document.getElementById('proj-content').innerHTML = buildContent(p);
+    // rewire WA link
+    var waLink = document.querySelector('#proj-content [data-wa]');
+    if(waLink && typeof waHref !== 'undefined') { waLink.href = waHref; waLink.target='_blank'; waLink.rel='noopener'; }
+    detail.setAttribute('aria-hidden','false');
+    detail.classList.add('open');
+    document.body.classList.add('proj-open');
+    if(scroll) scroll.scrollTop = 0;
+  }
+
+  function closeProj() {
+    detail.classList.remove('open');
+    detail.setAttribute('aria-hidden','true');
+    document.body.classList.remove('proj-open');
+  }
+
+  // Clic sur les cartes projet
+  document.querySelectorAll('.pcard').forEach(function(card, idx) {
+    var wrap = card.querySelector('.pc-logo-wrap');
+    if(wrap) wrap.addEventListener('click', function(){ openProj(idx); });
+  });
+
+  closeBtn.addEventListener('click', closeProj);
+  detail.addEventListener('keydown', function(e){ if(e.key==='Escape') closeProj(); });
+  // Clic sur le fond (hors contenu) ferme
+  scroll && scroll.addEventListener('click', function(e){
+    if(e.target === scroll) closeProj();
+  });
+})();
