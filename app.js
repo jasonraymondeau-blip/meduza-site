@@ -384,8 +384,8 @@
 
   // Clic sur les cartes projet
   document.querySelectorAll('.pcard').forEach(function(card, idx) {
-    var wrap = card.querySelector('.pc-logo-wrap');
-    if(wrap) wrap.addEventListener('click', function(){ openProj(idx); });
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(){ openProj(idx); });
   });
 
   closeBtn.addEventListener('click', closeProj);

@@ -231,7 +231,7 @@ html.is-light .cmp{--pb:#38060b;--pf:#38060b}
 .stack{position:relative;margin-top:45vh;padding-bottom:clamp(80px,12vh,160px)}
 .pcard{color:#fff;position:sticky;z-index:calc(2 + var(--i));top:calc(env(safe-area-inset-top,0px) + 92px + var(--i)*26px);margin-bottom:40px;height:clamp(460px,88vh,840px);background:#111;border:0;border-radius:18px;overflow:hidden}
 .pcard:last-child{margin-bottom:0}
-.pcard .bg{position:absolute;inset:0;border:0;border-radius:0;align-items:flex-start;justify-content:flex-start;padding:0}
+.pcard .bg{position:absolute;inset:0;border:0;border-radius:0;align-items:flex-start;justify-content:flex-start;padding:0;pointer-events:none}
 .pcard .bg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;transform:scale(1.18);transform-origin:50% 20%}
 .pcard:hover .bg img{transform:scale(1.22) translateY(0)}
 .pcard .bg[data-slot="project-1"] img{transform-origin:50% 15%}
