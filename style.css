@@ -67,10 +67,8 @@ h2{font-size:clamp(26px,3vw,32px);line-height:1.12}
 .nr{display:flex;align-items:center;font-size:15px}
 .cta{background:transparent;color:var(--fg);border:1px solid var(--fgline);padding:8px 16px;border-radius:99px;font-size:13px;font-weight:400;text-decoration:none;white-space:nowrap}
 .cta:hover{opacity:.88}
-.burger{width:40px;height:32px;border:1px solid var(--fgline);border-radius:99px;background:transparent;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;padding:0}
-.burger span{display:block;width:16px;height:1.5px;background:var(--fg);transition:transform .45s cubic-bezier(.22,.8,.24,1),background-color .42s}
-.burger[aria-expanded=true] span:nth-child(1){transform:translateY(3.25px) rotate(45deg)}
-.burger[aria-expanded=true] span:nth-child(2){transform:translateY(-3.25px) rotate(-45deg)}
+.burger{background:none;border:none;padding:4px 2px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg);opacity:.62;cursor:pointer;line-height:1;font-family:var(--sans)}
+.burger[aria-expanded=true]{opacity:1}
 .menu{position:absolute;top:calc(100% + 6px);right:20px;min-width:220px;padding:10px;border-radius:18px;background:rgba(28,5,8,.78);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;opacity:0;visibility:hidden;transform:translateY(-8px) scale(.98);transform-origin:top right;transition:opacity .4s ease,transform .5s cubic-bezier(.22,.8,.24,1),visibility 0s .5s}
 .menu.open{opacity:1;visibility:visible;transform:none;transition:opacity .4s ease,transform .5s cubic-bezier(.22,.8,.24,1),visibility 0s}
 .menu a{color:#fafafa;text-decoration:none;font-size:15px;padding:12px 14px;border-radius:12px;display:flex;align-items:center;gap:10px}
@@ -586,9 +584,9 @@ h4{font-size:var(--h4);line-height:1.3}
 h1,h2,h3,h4{font-family:var(--serif);font-weight:500}
 .pc-panel h3,.kt h3,.ask h3{font-weight:500}
 /* Colonne Meduza : apparaît en fondu avec les lignes, sans changement de couleur */
-.cmp .hl{opacity:0;transition:opacity 1.4s ease}
+.cmp .hl{opacity:0;transition:opacity .5s ease}
 .cmp.in .hl{opacity:1}
-html.is-light .cmp .hl{transition:opacity 1.4s ease}
+html.is-light .cmp .hl{transition:opacity .5s ease}
 /* Sous-titres des cartes : pleine largeur, à gauche vers la droite, plus grands */
 .kt>div{flex:1 1 auto;min-width:0}
 .kt p{max-width:none;font-size:max(12px,calc(var(--u,2px)*6.4));line-height:1.3}
@@ -634,9 +632,9 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
   .pcard{height:clamp(580px,88vh,920px);top:calc(env(safe-area-inset-top,0px) + 80px + var(--i)*14px)}
   .pcard .bg img{object-fit:cover;transform:scale(1.05)}
   .pcard:hover .bg img{transform:scale(1.05)}
-  .pcard:nth-child(1){transform:rotate(-1.8deg) translateX(-22px)}
-  .pcard:nth-child(2){transform:rotate(1.4deg) translateX(18px) translateY(-14px)}
-  .pcard:nth-child(3){transform:rotate(-1.2deg) translateX(-16px) translateY(-8px)}
+  .pcard:nth-child(1){transform:rotate(-1.8deg) translateX(-54px)}
+  .pcard:nth-child(2){transform:rotate(1.4deg) translateX(48px) translateY(-14px)}
+  .pcard:nth-child(3){transform:rotate(-1.2deg) translateX(-44px) translateY(-8px)}
   .pcard .bg::after{background-color:transparent;transition:background-color .45s ease}
   .pcard:hover .bg::after{background-color:rgba(0,0,0,.42)}
   .pc-logo-wrap{flex-direction:column;gap:8px}
@@ -735,11 +733,13 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
   .pcard .bg img{transform-origin:50% 5%}
   .pcard .bg[data-slot="project-1"] img{transform-origin:50% 100%}
 }
-/* Mobile : distribution de cartes (même esprit que desktop) */
+/* Mobile : distribution de cartes, rotation seulement quand la carte est collée (sticky) */
 @media (max-width:1023px){
-  .pcard:nth-child(1){transform:rotate(-1.6deg) translateX(-10px)}
-  .pcard:nth-child(2){transform:rotate(1.3deg) translateX(10px)}
-  .pcard:nth-child(3){transform:rotate(-1.1deg) translateX(-8px)}
+  .pcard{transition:transform .6s cubic-bezier(.22,.8,.24,1)}
+  .pcard.stuck:nth-child(1){transform:rotate(-1.6deg) translateX(-10px)}
+  .pcard.stuck:nth-child(2){transform:rotate(1.3deg) translateX(10px)}
+  .pcard.stuck:nth-child(3){transform:rotate(-1.1deg) translateX(-8px)}
+  .pc-logo{width:clamp(160px,48%,260px)}
 }
 
 /* Texte portfolio : sans blur, gras */
