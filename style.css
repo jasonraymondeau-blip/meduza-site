@@ -624,14 +624,15 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 .pc-mid{position:absolute !important;inset:0 !important;z-index:2;display:flex !important;flex-direction:column;align-items:center !important;justify-content:center !important;text-align:center;color:#fff;pointer-events:none}
 .pc-logo-wrap{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;pointer-events:none}
 .pc-mid-t{font-size:clamp(44px,5.6vw,84px);font-weight:600}
-.pc-logo{display:block;width:clamp(280px,60%,640px);height:auto}
+.pc-logo{display:block;width:clamp(140px,32%,360px);height:auto}
+.pc-panel{display:none!important}
 /* Cartes portfolio desktop : sans effet lumière, sans zoom survol */
+.pcard.spot:before,.pcard.spot:after{display:none!important}
 @media (min-width:1024px){
-  .stack{margin-left:-20px;margin-right:-20px}
-  .pcard{height:clamp(520px,80vh,820px)}
+  .stack{margin-left:40px;margin-right:40px}
+  .pcard{height:clamp(580px,88vh,920px)}
   .pcard .bg img{object-fit:cover;transform:scale(1.05)}
   .pcard:hover .bg img{transform:scale(1.05)}
-  .pcard.spot:before,.pcard.spot:after{display:none!important}
 }
 .pc-mid-s{font-size:15px}
 /* Contact : titre à gauche, photo + Vous, texte, disponibilité et bouton à droite */
