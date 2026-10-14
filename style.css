@@ -735,6 +735,12 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
   .pcard .bg img{transform-origin:50% 5%}
   .pcard .bg[data-slot="project-1"] img{transform-origin:50% 100%}
 }
+/* Mobile : distribution de cartes (même esprit que desktop) */
+@media (max-width:1023px){
+  .pcard:nth-child(1){transform:rotate(-1.6deg) translateX(-10px)}
+  .pcard:nth-child(2){transform:rotate(1.3deg) translateX(10px)}
+  .pcard:nth-child(3){transform:rotate(-1.1deg) translateX(-8px)}
+}
 
 /* Texte portfolio : sans blur, gras */
 .pcard:nth-child(1) .pc-panel{color:#111}
