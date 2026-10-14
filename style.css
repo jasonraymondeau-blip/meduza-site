@@ -627,9 +627,12 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 .pc-logo{display:block;width:clamp(240px,52%,580px);height:auto}
 /* Cartes portfolio : plus larges + alternance desktop */
 @media (min-width:1024px){
-  .stack{margin-left:-100px;margin-right:-100px}
-  .pcard:nth-child(odd){margin-right:160px}
-  .pcard:nth-child(even){margin-left:160px}
+  .stack{margin-left:-180px;margin-right:-180px}
+  .pcard:nth-child(odd){margin-right:220px}
+  .pcard:nth-child(even){margin-left:220px}
+  .pcard .bg img{object-fit:contain;transform:scale(1);transform-origin:50% 50%}
+  .pcard:hover .bg img{transform:scale(1)}
+  .pcard.spot:before,.pcard.spot:after{display:none!important}
 }
 .pc-mid-s{font-size:15px}
 /* Contact : titre à gauche, photo + Vous, texte, disponibilité et bouton à droite */
@@ -717,6 +720,11 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 .dk-contact .pair .plus{z-index:0}
 /* Sac Coutant : cadrage pour voir les sacs en entier */
 .pcard .bg[data-slot="project-3"] img{object-position:50% 25%}
+
+/* Mobile : image remontée pour éviter le sol clair sous le texte */
+@media (max-width:699px){
+  .pcard .bg img{transform-origin:50% 5%}
+}
 
 /* Texte portfolio : sans blur, gras */
 .pcard:nth-child(1) .pc-panel{color:#111}
