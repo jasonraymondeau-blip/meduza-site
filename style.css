@@ -733,12 +733,11 @@ html.is-light .cmp .hl{transition:opacity .5s ease}
   .pcard .bg img{transform-origin:50% 5%}
   .pcard .bg[data-slot="project-1"] img{transform-origin:50% 100%}
 }
-/* Mobile : distribution de cartes, rotation seulement quand la carte est collée (sticky) */
+/* Mobile : distribution de cartes + logos plus grands */
 @media (max-width:1023px){
-  .pcard{transition:transform .6s cubic-bezier(.22,.8,.24,1)}
-  .pcard.stuck:nth-child(1){transform:rotate(-1.6deg) translateX(-10px)}
-  .pcard.stuck:nth-child(2){transform:rotate(1.3deg) translateX(10px)}
-  .pcard.stuck:nth-child(3){transform:rotate(-1.1deg) translateX(-8px)}
+  .pcard:nth-child(1){transform:rotate(-1.6deg) translateX(-10px)}
+  .pcard:nth-child(2){transform:rotate(1.3deg) translateX(10px)}
+  .pcard:nth-child(3){transform:rotate(-1.1deg) translateX(-8px)}
   .pc-logo{width:clamp(160px,48%,260px)}
 }
 
