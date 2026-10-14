@@ -620,10 +620,10 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 .pc-mid{position:absolute !important;inset:0 !important;z-index:2;display:flex !important;flex-direction:column;align-items:center !important;justify-content:center !important;text-align:center;color:#fff;pointer-events:none}
 .pc-logo-wrap{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;pointer-events:none}
 .pc-mid-t{font-size:clamp(44px,5.6vw,84px);font-weight:600}
-.pc-logo{display:block;width:clamp(180px,40%,460px);height:auto;filter:drop-shadow(0 2px 18px rgba(0,0,0,.55)) drop-shadow(0 0 40px rgba(0,0,0,.35))}
-/* Cartes portfolio : pleine largeur sur ordinateur */
+.pc-logo{display:block;width:clamp(240px,52%,580px);height:auto;filter:drop-shadow(0 2px 18px rgba(0,0,0,.55)) drop-shadow(0 0 40px rgba(0,0,0,.35))}
+/* Cartes portfolio : un peu plus larges sur ordinateur */
 @media (min-width:1024px){
-  .stack{margin-left:calc(-50vw + 50%);margin-right:calc(-50vw + 50%);width:100vw}
+  .stack{margin-left:-60px;margin-right:-60px}
 }
 .pc-mid-s{font-size:15px}
 /* Contact : titre à gauche, photo + Vous, texte, disponibilité et bouton à droite */
