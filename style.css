@@ -72,22 +72,22 @@ h2{font-size:clamp(26px,3vw,32px);line-height:1.12}
 html.is-light .burger{color:#111}
 html:not(.is-light) .burger{color:#fff}
 /* Menu — rectangle flottant ancré haut-droite */
-.menu{position:fixed;top:24px;right:24px;bottom:132px;left:auto;width:calc(58% - 70px);z-index:200;display:flex;flex-direction:row;border-radius:20px 0 20px 0;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(-8px) scale(.98);transform-origin:top right;transition:opacity .4s ease,transform .4s cubic-bezier(.22,.8,.24,1),visibility 0s .4s}
+.menu{position:fixed;top:24px;right:4px;bottom:132px;left:auto;width:calc(58% - 70px);z-index:200;display:flex;flex-direction:row;border-radius:0;overflow:visible;opacity:0;visibility:hidden;transform:translateY(-8px) scale(.98);transform-origin:top right;transition:opacity .4s ease,transform .4s cubic-bezier(.22,.8,.24,1),visibility 0s .4s}
 .menu.open{opacity:1;visibility:visible;transform:none;transition:opacity .4s ease,transform .4s cubic-bezier(.22,.8,.24,1),visibility 0s}
 body.menu-open{overflow:hidden}
-.menu-l{width:44%;min-width:200px;background:#0e0e0e;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(48px,8vh,88px) clamp(24px,3.5vw,48px) clamp(32px,5vh,48px);overflow:auto}
+.menu-l{width:44%;min-width:200px;background:#0e0e0e;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(48px,8vh,88px) clamp(24px,3.5vw,48px) clamp(32px,5vh,48px);overflow:auto;border-radius:0 0 20px 0}
 .menu-nav{display:flex;flex-direction:column;gap:2px}
-.menu-nav a{font-size:clamp(28px,3.2vw,48px);font-weight:500;font-family:var(--serif);font-style:italic;letter-spacing:-.01em;color:#fafafa;text-decoration:none;text-transform:none;line-height:1.2;opacity:.88;transition:opacity .2s ease;display:block}
+.menu-nav a{font-size:clamp(24px,2.8vw,40px);font-weight:700;font-family:var(--sans);font-style:normal;letter-spacing:-.02em;color:#fafafa;text-decoration:none;text-transform:uppercase;line-height:1.15;opacity:.88;transition:opacity .2s ease;display:block}
 .menu-nav a:hover{opacity:.38}
 .menu-foot{display:flex;flex-direction:column;gap:10px}
 .menu-wm{color:#fff!important;width:clamp(80px,7vw,110px);flex:none}
 .menu-tag{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.07em;text-transform:uppercase;margin:0}
-.menu-r{flex:1;display:flex;flex-direction:column;overflow:hidden;background:#111}
+.menu-r{flex:1;display:flex;flex-direction:column;overflow:hidden;background:#111;border-radius:20px 0 0 0}
 .menu-ri{flex:1;position:relative;overflow:hidden;background:#181614}
 .menu-ri.mi2{background:#141418}
 .menu-rbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.8}
 .menu-ri::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");opacity:.55;pointer-events:none;mix-blend-mode:overlay}
-.menu-rlogo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:clamp(140px,16vh,220px);width:auto;max-width:80%;object-fit:contain;filter:brightness(0) invert(1);opacity:.95;z-index:2}
+.menu-rlogo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:clamp(180px,22vh,280px);width:auto;max-width:85%;object-fit:contain;filter:brightness(0) invert(1);opacity:.95;z-index:2}
 .menu-close{position:absolute;top:14px;right:16px;z-index:10;background:none;border:none;color:rgba(255,255,255,.6);font-size:18px;cursor:pointer;line-height:1;padding:6px 8px;transition:color .2s ease}
 .menu-close:hover{color:#fff}
 .nav a{position:relative;padding:4px 2px}
@@ -915,8 +915,8 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:500}
 .pts-stat span{display:block;font-size:14px;color:var(--fg2);margin-top:3px}
 @media (max-width:859px){
   .pts{gap:0;padding-top:16px}
-  .pts li{padding:12px 0;gap:12px}
-  .pts-logo{width:36px;height:36px;border-radius:8px}
-  .pts-name{font-size:13px}
-  .pts-stat span{font-size:12px}
+  .pts li{padding:16px 0;gap:10px}
+  .pts-logo{width:28px;height:28px;border-radius:7px}
+  .pts-name{font-size:11px}
+  .pts-stat span{font-size:10px}
 }
