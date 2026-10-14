@@ -1004,10 +1004,12 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
    PASSE FINALE
    ============================================================ */
 
-/* Cartes Services : ne pas déborder sur les côtés sur téléphone */
+/* Cartes Services : plus grandes, moins de marges sur téléphone */
 @media (max-width:760px){
-  .offer .wrap{padding-left:28px;padding-right:28px}
+  .offer .wrap{padding-left:10px;padding-right:10px}
+  .offer .grid{gap:6px !important}
   .offer{overflow-x:clip}
+  .slot,.static{aspect-ratio:3/5 !important}
 }
 
 /* Bulle « Validé, on lance ! » (Accompagnement) : bordeaux clair au lieu du vert */
