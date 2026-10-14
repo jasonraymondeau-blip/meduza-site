@@ -625,12 +625,12 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 .pc-logo-wrap{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;pointer-events:none}
 .pc-mid-t{font-size:clamp(44px,5.6vw,84px);font-weight:600}
 .pc-logo{display:block;width:clamp(280px,60%,640px);height:auto}
-/* Cartes portfolio : plus larges, linéaires, sans effet lumière desktop */
+/* Cartes portfolio desktop : sans effet lumière, sans zoom survol */
 @media (min-width:1024px){
-  .stack{margin-left:-180px;margin-right:-180px}
-  .pcard{height:clamp(360px,60vh,600px)}
-  .pcard .bg img{object-fit:cover;transform:scale(1.18)}
-  .pcard:hover .bg img{transform:scale(1.22) translateY(0)}
+  .stack{margin-left:-60px;margin-right:-60px}
+  .pcard{height:clamp(440px,70vh,700px)}
+  .pcard .bg img{object-fit:cover;transform:scale(1.05)}
+  .pcard:hover .bg img{transform:scale(1.05)}
   .pcard.spot:before,.pcard.spot:after{display:none!important}
 }
 .pc-mid-s{font-size:15px}
@@ -720,10 +720,9 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 /* Sac Coutant : cadrage pour voir les sacs en entier */
 .pcard .bg[data-slot="project-3"] img{object-position:50% 25%}
 
-/* Mobile : Zafer image ancrée en bas pour montrer le sol blanc sous le texte noir */
+/* Mobile : ancrage image vers le haut */
 @media (max-width:699px){
   .pcard .bg img{transform-origin:50% 5%}
-  .pcard .bg[data-slot="project-1"] img{transform-origin:50% 90%}
 }
 
 /* Texte portfolio : sans blur, gras */
