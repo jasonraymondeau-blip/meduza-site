@@ -617,7 +617,14 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 /* Reels : plus bas, bord doux en bas */
 .viz .ig{transform:translateY(calc(var(--u,2px)*11));-webkit-mask-image:linear-gradient(to bottom,#000 40%,transparent 100%);mask-image:linear-gradient(to bottom,#000 40%,transparent 100%)}
 /* Titre sur l'image : plus grand, plus gras */
+.pc-mid{position:absolute !important;inset:0 !important;z-index:2;display:flex !important;flex-direction:column;align-items:center !important;justify-content:center !important;text-align:center;color:#fff;pointer-events:none}
+.pc-logo-wrap{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;pointer-events:none}
 .pc-mid-t{font-size:clamp(44px,5.6vw,84px);font-weight:600}
+.pc-logo{display:block;width:clamp(180px,40%,460px);height:auto;filter:drop-shadow(0 2px 18px rgba(0,0,0,.55)) drop-shadow(0 0 40px rgba(0,0,0,.35))}
+/* Cartes portfolio : pleine largeur sur ordinateur */
+@media (min-width:1024px){
+  .stack{margin-left:calc(-50vw + 50%);margin-right:calc(-50vw + 50%);width:100vw}
+}
 .pc-mid-s{font-size:15px}
 /* Contact : titre à gauche, photo + Vous, texte, disponibilité et bouton à droite */
 .dk-contact .ccard{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(28px,5vw,80px);width:min(1100px,100%);padding:clamp(40px,6vw,80px) clamp(28px,5vw,80px)}
