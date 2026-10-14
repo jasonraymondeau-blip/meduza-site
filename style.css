@@ -206,9 +206,11 @@ html.is-light .cmp{--pb:#38060b;--pf:#38060b}
 .pcard{color:#fff;position:sticky;z-index:calc(2 + var(--i));top:calc(env(safe-area-inset-top,0px) + 92px + var(--i)*26px);margin-bottom:40px;height:clamp(460px,88vh,840px);background:#111;border:0;border-radius:18px;overflow:hidden}
 .pcard:last-child{margin-bottom:0}
 .pcard .bg{position:absolute;inset:0;border:0;border-radius:0;align-items:flex-start;justify-content:flex-start;padding:0}
-.pcard .bg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
-.pcard:hover .bg img{transform:scale(1.04)}
-.pcard .bg[data-slot="project-1"] img{object-position:50% 5%}
+.pcard .bg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;transform:scale(1.18);transform-origin:50% 20%}
+.pcard:hover .bg img{transform:scale(1.22) translateY(0)}
+.pcard .bg[data-slot="project-1"] img{transform-origin:50% 15%}
+.pcard .bg[data-slot="project-2"] img{transform-origin:50% 25%}
+.pcard .bg[data-slot="project-3"] img{transform-origin:50% 20%}
 .pcard:after{content:'';position:absolute;inset:0;background:none;pointer-events:none}
 .pc-ov{display:none}
 .pc-panel{position:absolute;left:40px;right:40px;bottom:40px;z-index:1;background:none;border:0;padding:0;display:flex;flex-direction:column;box-shadow:none}
@@ -623,11 +625,11 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 .pc-logo-wrap{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;pointer-events:none}
 .pc-mid-t{font-size:clamp(44px,5.6vw,84px);font-weight:600}
 .pc-logo{display:block;width:clamp(240px,52%,580px);height:auto}
-/* Cartes portfolio : alternance gauche/droite sur ordinateur */
+/* Cartes portfolio : plus larges + alternance desktop */
 @media (min-width:1024px){
-  .stack{margin-left:-60px;margin-right:-60px}
-  .pcard:nth-child(odd){margin-right:80px}
-  .pcard:nth-child(even){margin-left:80px}
+  .stack{margin-left:-100px;margin-right:-100px}
+  .pcard:nth-child(odd){margin-right:160px}
+  .pcard:nth-child(even){margin-left:160px}
 }
 .pc-mid-s{font-size:15px}
 /* Contact : titre à gauche, photo + Vous, texte, disponibilité et bouton à droite */
@@ -714,7 +716,7 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 /* Photo et Vous passent au-dessus du + quand on approche le bouton */
 .dk-contact .pair .plus{z-index:0}
 /* Sac Coutant : cadrage pour voir les sacs en entier */
-.pcard .bg[data-slot="project-3"] img{object-position:50% 80%}
+.pcard .bg[data-slot="project-3"] img{object-position:50% 25%}
 
 /* ============================================================
    LOADER — écran de chargement
