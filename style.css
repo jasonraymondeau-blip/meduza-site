@@ -73,7 +73,7 @@ html.is-light .burger{color:#111}
 html:not(.is-light) .burger{color:#fff}
 /* Menu — rectangle flottant ancré haut-droite */
 .menu{position:fixed;top:calc(env(safe-area-inset-top,0px) + 76px + 5px);right:20px;bottom:132px;left:auto;width:calc(58% - 70px);z-index:200;display:flex;flex-direction:row;border-radius:0;overflow:visible;opacity:0;visibility:hidden;transform:translateY(-8px) scale(.98);transform-origin:top right;transition:opacity .4s ease,transform .4s cubic-bezier(.22,.8,.24,1),visibility 0s .4s}
-.menu.open{opacity:1;visibility:visible;transform:none;transition:opacity .4s ease,transform .4s cubic-bezier(.22,.8,.24,1),visibility 0s}
+.menu.open{opacity:1;visibility:visible;transform:none;transition:opacity .4s ease,transform .4s cubic-bezier(.22,.8,.24,1),visibility 0s;filter:drop-shadow(0 8px 40px rgba(0,0,0,.55))}
 body.menu-open{overflow:hidden}
 #main{transition:filter .4s ease}
 body.menu-open #main{filter:blur(3px) brightness(.82)}
