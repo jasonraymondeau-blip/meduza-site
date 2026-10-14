@@ -942,8 +942,8 @@ body.proj-open{overflow:hidden}
 .proj-nav{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:0 44px;height:76px;background:linear-gradient(to bottom,rgba(16,3,6,.78) 0%,rgba(16,3,6,0) 100%)}
 .proj-nav-brand{display:flex;align-items:center}
 .proj-nav-brand .wm{color:#fff;width:124px}
-.proj-close.burger{color:#fff;opacity:.88}
-.proj-close.burger:hover{opacity:1}
+.proj-detail .proj-close,.proj-detail .proj-close.burger{color:#fff!important;opacity:.88}
+.proj-detail .proj-close:hover{opacity:1}
 
 .proj-scroll{height:100vh;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;scroll-behavior:smooth}
 
@@ -960,20 +960,23 @@ body.proj-open{overflow:hidden}
 .proj-h1{margin:0 0 14px;font:600 clamp(44px,8vw,88px)/1.02 var(--serif);color:#fafafa;letter-spacing:-.025em}
 .proj-tagline{margin:0;font:300 clamp(17px,2.4vw,22px)/1.45 -apple-system,BlinkMacSystemFont,sans-serif;color:rgba(250,250,250,.7)}
 
-.proj-content{background:#1b050a;padding:72px 40px 120px;max-width:840px}
-.pc-logo-img{height:36px;width:auto;max-width:180px;object-fit:contain;margin-bottom:40px;display:block;filter:brightness(0) invert(1);opacity:.85}
-.pc-type{font:400 11px/1.4 monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,250,250,.45);margin:0 0 28px}
-.pc-desc{font:300 clamp(20px,3vw,28px)/1.5 var(--serif);color:rgba(250,250,250,.88);margin:0 0 56px}
+.proj-content{background:#f5f3ef;padding:72px 40px 120px;max-width:840px}
+.pc-title-logo{height:108px;width:auto;max-width:540px;object-fit:contain;margin-bottom:40px;display:block;opacity:.9}
+.pc-content-h1{font:600 clamp(28px,4vw,42px)/1.15 var(--serif);color:#111;margin:0 0 16px;letter-spacing:-.01em}
+.pc-tagline-text{font:300 clamp(16px,2vw,20px)/1.5 var(--serif);color:rgba(30,20,20,.6);margin:0 0 40px}
+.pc-logo-img{height:36px;width:auto;max-width:180px;object-fit:contain;margin-bottom:40px;display:block;opacity:.85}
+.pc-type{font:400 11px/1.4 monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(30,20,20,.45);margin:0 0 28px}
+.pc-desc{font:300 clamp(20px,3vw,28px)/1.5 var(--serif);color:rgba(30,20,20,.82);margin:0 0 56px}
 .pc-stats{display:flex;gap:48px;margin-bottom:56px;flex-wrap:wrap}
 .pc-stat{display:flex;flex-direction:column;gap:6px}
-.pc-stat-n{font:600 clamp(36px,5.5vw,56px)/1 var(--serif);color:#fafafa;display:block}
-.pc-stat-l{font:400 12px/1.4 -apple-system,BlinkMacSystemFont,sans-serif;color:rgba(250,250,250,.45);text-transform:uppercase;letter-spacing:.1em}
+.pc-stat-n{font:600 clamp(36px,5.5vw,56px)/1 var(--serif);color:#111;display:block}
+.pc-stat-l{font:400 12px/1.4 -apple-system,BlinkMacSystemFont,sans-serif;color:rgba(30,20,20,.45);text-transform:uppercase;letter-spacing:.1em}
 .pc-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:64px}
-.pc-tag{display:inline-block;padding:9px 18px;background:rgba(250,250,250,.06);border:1px solid rgba(250,250,250,.11);border-radius:100px;font:400 13px/1 -apple-system,BlinkMacSystemFont,sans-serif;color:rgba(250,250,250,.65)}
+.pc-tag{display:inline-block;padding:9px 18px;background:rgba(30,20,20,.06);border:1px solid rgba(30,20,20,.14);border-radius:100px;font:400 13px/1 -apple-system,BlinkMacSystemFont,sans-serif;color:rgba(30,20,20,.65)}
 .pc-img2{width:100%;border-radius:12px;overflow:hidden;margin-top:8px}
 .pc-img2 img{width:100%;height:auto;display:block;border-radius:12px}
-.pc-cta-block{margin-top:56px;padding-top:40px;border-top:1px solid rgba(250,250,250,.1)}
-.pc-cta-block a{display:inline-block;padding:16px 32px;background:#fafafa;color:#1b050a;border-radius:100px;font:500 14px/1 -apple-system,BlinkMacSystemFont,sans-serif;text-decoration:none;letter-spacing:.02em;transition:opacity .2s}
+.pc-cta-block{margin-top:56px;padding-top:40px;border-top:1px solid rgba(30,20,20,.12)}
+.pc-cta-block a{display:inline-block;padding:16px 32px;background:#1b050a;color:#f5f3ef;border-radius:100px;font:500 14px/1 -apple-system,BlinkMacSystemFont,sans-serif;text-decoration:none;letter-spacing:.02em;transition:opacity .2s}
 .pc-cta-block a:hover{opacity:.85}
 
 .pcard .pc-logo-wrap{cursor:pointer}

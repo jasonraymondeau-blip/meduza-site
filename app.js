@@ -349,7 +349,9 @@
       return '<span class="pc-tag">'+t+'</span>';
     }).join('');
     var img2 = p.img2 ? '<div class="pc-img2"><img src="'+p.img2+'" alt="'+p.label+'" loading="lazy"></div>' : '';
-    return '<img class="pc-logo-img" src="'+p.logo+'" alt="'+p.label+'">'
+    return '<img class="pc-title-logo" src="'+p.logo+'" alt="'+p.label+'">'
+      + '<h2 class="pc-content-h1">'+p.h1+'</h2>'
+      + '<p class="pc-tagline-text">'+p.tagline+'</p>'
       + '<p class="pc-type">'+p.type+'</p>'
       + '<p class="pc-desc">'+p.desc+'</p>'
       + '<div class="pc-stats">'+stats+'</div>'
@@ -365,9 +367,6 @@
     document.getElementById('proj-bg').alt = p.label;
     document.getElementById('proj-hero-logo').src = p.logo;
     document.getElementById('proj-hero-logo').alt = p.label;
-    document.getElementById('proj-hlabel').textContent = p.label;
-    document.getElementById('proj-h1').textContent = p.h1;
-    document.getElementById('proj-tagline').textContent = p.tagline;
     document.getElementById('proj-content').innerHTML = buildContent(p);
     // rewire WA link
     var waLink = document.querySelector('#proj-content [data-wa]');
