@@ -720,9 +720,10 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 /* Sac Coutant : cadrage pour voir les sacs en entier */
 .pcard .bg[data-slot="project-3"] img{object-position:50% 25%}
 
-/* Mobile : ancrage image vers le haut */
+/* Mobile : ancrage image vers le haut ; Zafer ancrée en bas pour montrer le sol beige */
 @media (max-width:699px){
   .pcard .bg img{transform-origin:50% 5%}
+  .pcard .bg[data-slot="project-1"] img{transform-origin:50% 90%}
 }
 
 /* Texte portfolio : sans blur, gras */
