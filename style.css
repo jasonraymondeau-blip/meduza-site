@@ -718,11 +718,11 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 /* Sac Coutant : cadrage pour voir les sacs en entier */
 .pcard .bg[data-slot="project-3"] img{object-position:50% 25%}
 
-/* Blur texte portfolio */
-.pcard:nth-child(2) .pc-panel,
-.pcard:nth-child(3) .pc-panel{background:rgba(0,0,0,.22);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:14px;padding:16px 20px}
-.pcard:nth-child(1) .pc-panel{background:rgba(255,255,255,.22);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:14px;padding:16px 20px;color:#111}
-.pcard:nth-child(1) .pc-panel p{color:rgba(0,0,0,.75)}
+/* Texte portfolio : sans blur, gras */
+.pcard:nth-child(1) .pc-panel{color:#111}
+.pcard:nth-child(1) .pc-panel p{color:rgba(0,0,0,.85);font-weight:600}
+.pcard:nth-child(2) .pc-panel p,
+.pcard:nth-child(3) .pc-panel p{font-weight:600}
 
 /* ============================================================
    LOADER — écran de chargement
