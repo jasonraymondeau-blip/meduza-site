@@ -627,8 +627,8 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 .pc-logo{display:block;width:clamp(280px,60%,640px);height:auto}
 /* Cartes portfolio desktop : sans effet lumière, sans zoom survol */
 @media (min-width:1024px){
-  .stack{margin-left:-60px;margin-right:-60px}
-  .pcard{height:clamp(440px,70vh,700px)}
+  .stack{margin-left:-20px;margin-right:-20px}
+  .pcard{height:clamp(520px,80vh,820px)}
   .pcard .bg img{object-fit:cover;transform:scale(1.05)}
   .pcard:hover .bg img{transform:scale(1.05)}
   .pcard.spot:before,.pcard.spot:after{display:none!important}
@@ -723,7 +723,7 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 /* Mobile : ancrage image vers le haut ; Zafer ancrée en bas pour montrer le sol beige */
 @media (max-width:699px){
   .pcard .bg img{transform-origin:50% 5%}
-  .pcard .bg[data-slot="project-1"] img{transform-origin:50% 90%}
+  .pcard .bg[data-slot="project-1"] img{transform-origin:50% 100%}
 }
 
 /* Texte portfolio : sans blur, gras */
