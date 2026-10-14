@@ -363,6 +363,8 @@
     if(!p) return;
     document.getElementById('proj-bg').src = p.bg;
     document.getElementById('proj-bg').alt = p.label;
+    document.getElementById('proj-hero-logo').src = p.logo;
+    document.getElementById('proj-hero-logo').alt = p.label;
     document.getElementById('proj-hlabel').textContent = p.label;
     document.getElementById('proj-h1').textContent = p.h1;
     document.getElementById('proj-tagline').textContent = p.tagline;
