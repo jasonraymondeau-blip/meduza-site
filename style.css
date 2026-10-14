@@ -1009,7 +1009,9 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
   .offer .wrap{padding-left:10px;padding-right:10px}
   .offer .grid{gap:6px !important}
   .offer{overflow-x:clip}
-  .slot,.static{aspect-ratio:3/5 !important}
+  .slot,.static{aspect-ratio:3/4.5 !important}
+  /* Icône Reels (Convaincre) : trop grande, on la réduit */
+  .ig svg{width:calc(var(--u,2px)*4.2) !important;height:calc(var(--u,2px)*4.2) !important}
 }
 
 /* Bulle « Validé, on lance ! » (Accompagnement) : bordeaux clair au lieu du vert */
