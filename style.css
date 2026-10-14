@@ -208,7 +208,7 @@ html.is-light .cmp{--pb:#38060b;--pf:#38060b}
 .pcard .bg{position:absolute;inset:0;border:0;border-radius:0;align-items:flex-start;justify-content:flex-start;padding:0}
 .pcard .bg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
 .pcard:hover .bg img{transform:scale(1.04)}
-.pcard .bg[data-slot="project-1"] img{object-position:50% 20%}
+.pcard .bg[data-slot="project-1"] img{object-position:50% 5%}
 .pcard:after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,2,3,.72) 0%,rgba(8,2,3,.26) 32%,transparent 56%);pointer-events:none}
 .pc-ov{display:none}
 .pc-panel{position:absolute;left:40px;right:40px;bottom:36px;z-index:1;background:none;border:0;padding:0;display:flex;flex-direction:column;box-shadow:none}
@@ -622,10 +622,12 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
 .pc-mid{position:absolute !important;inset:0 !important;z-index:2;display:flex !important;flex-direction:column;align-items:center !important;justify-content:center !important;text-align:center;color:#fff;pointer-events:none}
 .pc-logo-wrap{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;pointer-events:none}
 .pc-mid-t{font-size:clamp(44px,5.6vw,84px);font-weight:600}
-.pc-logo{display:block;width:clamp(240px,52%,580px);height:auto;filter:drop-shadow(0 2px 18px rgba(0,0,0,.55)) drop-shadow(0 0 40px rgba(0,0,0,.35))}
-/* Cartes portfolio : un peu plus larges sur ordinateur */
+.pc-logo{display:block;width:clamp(240px,52%,580px);height:auto}
+/* Cartes portfolio : alternance gauche/droite sur ordinateur */
 @media (min-width:1024px){
   .stack{margin-left:-60px;margin-right:-60px}
+  .pcard:nth-child(odd){margin-right:80px}
+  .pcard:nth-child(even){margin-left:80px}
 }
 .pc-mid-s{font-size:15px}
 /* Contact : titre à gauche, photo + Vous, texte, disponibilité et bouton à droite */
