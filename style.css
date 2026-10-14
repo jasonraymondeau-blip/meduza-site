@@ -633,6 +633,9 @@ html.is-light .cmp .hl{transition:opacity 1.4s ease}
   .pcard{height:clamp(580px,88vh,920px)}
   .pcard .bg img{object-fit:cover;transform:scale(1.05)}
   .pcard:hover .bg img{transform:scale(1.05)}
+  .pcard:nth-child(1){transform:rotate(-1.8deg) translateX(-22px)}
+  .pcard:nth-child(2){transform:rotate(1.4deg) translateX(18px)}
+  .pcard:nth-child(3){transform:rotate(-1.2deg) translateX(-16px)}
 }
 .pc-mid-s{font-size:15px}
 /* Contact : titre à gauche, photo + Vous, texte, disponibilité et bouton à droite */
