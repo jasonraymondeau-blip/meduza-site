@@ -100,7 +100,6 @@
     el.style.setProperty('--u',(w/100)+'px');
     el.style.borderRadius=(w*.05)+'px';
     var arr=T.Wp;
-    f.h3.style.opacity=arr>=.999?1:0;
     if(arr>.002){
       /* le mot quitte le texte et va directement à sa place dans le titre de la carte, incliné comme elle */
       var hr=f.h3.getBoundingClientRect(),hx=hr.left+hr.width/2,hy=hr.top+hr.height/2;
