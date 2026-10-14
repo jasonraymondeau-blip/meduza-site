@@ -926,8 +926,8 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:500}
 .pts-name{display:block;font-size:16px;font-weight:700;color:#111;line-height:1.2}
 .pts-stat span{display:block;font-size:14px;color:var(--fg2);margin-top:3px}
 @media (max-width:859px){
-  .pts{gap:0;padding-top:16px;justify-content:space-evenly}
-  .pts li{flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:10px 2px;gap:7px}
+  .pts{gap:0;padding-top:16px;padding-left:0;padding-right:0;justify-content:space-around;margin-left:0;margin-right:0;width:100%;box-sizing:border-box}
+  .pts li{flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:10px 0;gap:7px;flex:1}
   .pts-logo{width:32px;height:32px;border-radius:8px}
   .pts-name{font-size:11px;text-align:center}
   .pts-stat{text-align:center}

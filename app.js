@@ -43,7 +43,7 @@
   var fl=[0,1].map(function(i){
     var c=document.createElement('div');c.className='card fc spot';
     c.innerHTML='<div class="detail">'+kcard(i)+'</div>';layer.appendChild(c);
-    var fw=document.createElement('div');fw.className='fw';fw.textContent=DATA[i].w;/* fw non ajouté au DOM : supprime le doublon texte */
+    var fw=document.createElement('div');fw.className='fw';fw.textContent=DATA[i].w;layer.appendChild(fw);
     return {i:i,el:c,fw:fw,h3:$('h3',c)};
   });
   /* une fois arrivées, les cartes 01 et 02 sont posées dans leur emplacement (elles défilent avec la page) */
@@ -99,7 +99,7 @@
     el.style.setProperty('--u',(w/100)+'px');
     el.style.borderRadius=(w*.05)+'px';
     var arr=T.Wp;
-    f.h3.style.opacity=1;
+    f.h3.style.opacity=arr>=.999?1:0;
     if(arr>.002){
       /* le mot quitte le texte et va directement à sa place dans le titre de la carte, incliné comme elle */
       var hr=f.h3.getBoundingClientRect(),hx=hr.left+hr.width/2,hy=hr.top+hr.height/2;
