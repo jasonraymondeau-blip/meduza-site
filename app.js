@@ -342,20 +342,16 @@
   if(!detail || !closeBtn) return;
 
   function buildContent(p) {
-    var stats = p.stats.map(function(s){
-      return '<div class="pc-stat"><b class="pc-stat-n">'+s.n+'</b><span class="pc-stat-l">'+s.l+'</span></div>';
-    }).join('');
-    var tags = p.tags.map(function(t){
-      return '<span class="pc-tag">'+t+'</span>';
+    var metaStats = p.stats.map(function(s){
+      return '<div class="pc-meta-item"><span class="pc-meta-label">'+s.l+'</span><span class="pc-meta-value">'+s.n+'</span></div>';
     }).join('');
     var img2 = p.img2 ? '<div class="pc-img2"><img src="'+p.img2+'" alt="'+p.label+'" loading="lazy"></div>' : '';
-    return '<img class="pc-title-logo" src="'+p.logo+'" alt="'+p.label+'">'
-      + '<h2 class="pc-content-h1">'+p.h1+'</h2>'
-      + '<p class="pc-tagline-text">'+p.tagline+'</p>'
-      + '<p class="pc-type">'+p.type+'</p>'
-      + '<p class="pc-desc">'+p.desc+'</p>'
-      + '<div class="pc-stats">'+stats+'</div>'
-      + '<div class="pc-tags">'+tags+'</div>'
+    return '<span class="pc-about-label">À propos</span>'
+      + '<p class="pc-about-text">'+p.desc+'</p>'
+      + '<div class="pc-meta-row">'
+      +   '<div class="pc-meta-item"><span class="pc-meta-label">Services</span><span class="pc-meta-value">'+p.type+'</span></div>'
+      +   metaStats
+      + '</div>'
       + img2
       + '<div class="pc-cta-block"><a data-wa href="#contact">Démarrer un projet similaire</a></div>';
   }
@@ -365,7 +361,7 @@
   function updateNavLight() {
     if(!projNav || !scroll) return;
     var heroH = detail.querySelector('.proj-hero') ? detail.querySelector('.proj-hero').offsetHeight : window.innerHeight * 0.68;
-    projNav.classList.toggle('is-light', scroll.scrollTop > heroH * 0.8);
+    projNav.classList.toggle('is-dark', scroll.scrollTop > heroH * 0.8);
   }
 
   function openProj(idx) {
@@ -373,8 +369,8 @@
     if(!p) return;
     document.getElementById('proj-bg').src = p.bg;
     document.getElementById('proj-bg').alt = p.label;
-    document.getElementById('proj-hero-logo').src = p.logo;
-    document.getElementById('proj-hero-logo').alt = p.label;
+    var heroH1 = document.getElementById('proj-hero-h1');
+    if(heroH1) heroH1.textContent = p.h1;
     document.getElementById('proj-content').innerHTML = buildContent(p);
     // rewire WA link
     var waLink = document.querySelector('#proj-content [data-wa]');
@@ -383,14 +379,14 @@
     detail.classList.add('open');
     document.body.classList.add('proj-open');
     if(scroll) { scroll.scrollTop = 0; }
-    if(projNav) projNav.classList.remove('is-light');
+    if(projNav) projNav.classList.remove('is-dark');
   }
 
   function closeProj() {
     detail.classList.remove('open');
     detail.setAttribute('aria-hidden','true');
     document.body.classList.remove('proj-open');
-    if(projNav) projNav.classList.remove('is-light');
+    if(projNav) projNav.classList.remove('is-dark');
   }
 
   if(scroll) scroll.addEventListener('scroll', updateNavLight, {passive:true});
