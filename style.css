@@ -686,7 +686,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:500}
 /* Passe 6 : animations un peu plus petites ; chiffres 01/04 plus petits */
 .viz{zoom:.8}
 /* Titre des cartes Création/Convaincre : masqué car le mot flottant l'affiche déjà */
-.slot .sc .kt h3{display:none}
+.slot .sc .kt h3{transition:opacity .3s ease}
 .big{font-size:max(22px,calc(var(--u,2px)*11.5))}
 .cmini{transform:none}
 /* Passe 7 */
@@ -956,7 +956,7 @@ body.proj-open{overflow:hidden}
 .proj-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center}
 .proj-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(var(--proj-rgb),0) 58%,rgba(var(--proj-rgb),.07) 72%,rgba(var(--proj-rgb),.45) 84%,rgba(var(--proj-rgb),.9) 93%,rgba(var(--proj-rgb),1) 100%);pointer-events:none}
 .proj-hero-title{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:0 44px 52px}
-.proj-hero-logo{display:block;max-height:76px;max-width:280px;width:auto;filter:brightness(0) invert(1);opacity:0;transform:translateY(14px);transition:opacity .5s ease .25s,transform .5s ease .25s}
+.proj-hero-logo{display:block;max-height:220px;max-width:520px;width:auto;filter:brightness(0) invert(1);opacity:0;transform:translateY(14px);transition:opacity .5s ease .25s,transform .5s ease .25s}
 .proj-detail.open .proj-hero-logo{opacity:1;transform:translateY(0)}
 .proj-detail.proj-light .proj-hero-logo{filter:none}
 .proj-detail.open .proj-htext{opacity:1;transform:translateY(0)}

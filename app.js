@@ -52,10 +52,11 @@
     var sc=document.createElement('div');sc.className='card sc dkc spot';
     sc.innerHTML='<div class="detail">'+kcard(i)+'</div>';
     slots[i].appendChild(sc);f.sc=sc;
+    var sch3=$('h3',sc);if(sch3)sch3.style.opacity='0';f.sch3=sch3;
     MeduzaViz.watch(sc,{landed:false});
   });
   var cur=[null,null],last=0,running=false;
-  function kick(){var n=performance.now();if(running&&n-last>250)running=false;fl.forEach(function(f){var T=f.tgt;if(T&&T.te>=.995&&T.dd<=1){f.el.style.opacity=0;f.fw.style.opacity=0;f.sc.style.opacity=1;f.sc.classList.add('go');MeduzaViz.setLanded(f.sc,true)}});if(!running){running=true;last=n;var d2=false,go2=function(t){if(d2)return;d2=true;step(t||performance.now())};requestAnimationFrame(go2);setTimeout(go2,120)}}
+  function kick(){var n=performance.now();if(running&&n-last>250)running=false;fl.forEach(function(f){var T=f.tgt;if(T&&T.te>=.995&&T.dd<=1){f.el.style.opacity=0;f.fw.style.opacity=0;f.sc.style.opacity=1;f.sc.classList.add('go');if(f.sch3)f.sch3.style.opacity='1';MeduzaViz.setLanded(f.sc,true)}});if(!running){running=true;last=n;var d2=false,go2=function(t){if(d2)return;d2=true;step(t||performance.now())};requestAnimationFrame(go2);setTimeout(go2,120)}}
   function step(now){
     var dt=Math.min(.05,(now-last)/1000),moving=false;last=now;
     fl.forEach(function(f){
@@ -63,7 +64,7 @@
       if(T.te>=.995&&T.dd<=1){
         /* arrivée : la carte flottante disparaît, la carte posée dans l'emplacement prend le relais */
         cur[f.i]={x:T.x,y:T.y,w:T.w,h:T.h,rot:T.rot};
-        f.el.style.opacity=0;f.fw.style.opacity=0;f.sc.style.opacity=1;f.sc.classList.add('go');MeduzaViz.setLanded(f.sc,true);return;
+        f.el.style.opacity=0;f.fw.style.opacity=0;f.sc.style.opacity=1;f.sc.classList.add('go');if(f.sch3)f.sch3.style.opacity='1';MeduzaViz.setLanded(f.sc,true);return;
       }
       f.sc.style.opacity=0;f.sc.classList.remove('go');MeduzaViz.setLanded(f.sc,false);
       var c=cur[f.i];if(!c){c=cur[f.i]={x:T.x,y:T.y,w:T.w,h:T.h,rot:T.rot}}
@@ -112,7 +113,8 @@
       fw.style.textShadow='0 0 '+(22*Math.sin(Math.PI*clamp(arr,0,1)))+'px rgba(255,255,255,.4)';
       fw.style.fontSize=fs+'px';fw.style.color='#f4f4f4';
       fw.style.transform='translate('+x+'px,'+y+'px) translate(-50%,-50%) rotate('+rot+'deg)';
-      fw.style.opacity=arr>=.999?0:1;fw.style.zIndex=5;
+      var landed=arr>=.999;fw.style.opacity=landed?0:1;fw.style.zIndex=5;
+      if(landed&&f.sch3)f.sch3.style.opacity='1';
     }else{f.fw.style.opacity=0}
   }
   function seq(){
