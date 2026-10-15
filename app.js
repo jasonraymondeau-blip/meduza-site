@@ -309,7 +309,8 @@
       type: 'Application mobile',
       desc: 'Une app pensée pour le marché mauricien, de la conception jusqu\'au lancement.',
       stats: [{n:'+6 000',l:'téléchargements'},{n:'3 500',l:'inscrits'}],
-      tags: ['Design UI/UX','Développement','Stratégie de lancement']
+      tags: ['Design UI/UX','Développement','Stratégie de lancement'],
+      contentBg: '#f5f3ef', light: true
     },
     {
       label: 'boun in mauritius',
@@ -321,7 +322,8 @@
       desc: 'Stratégie de contenu, direction visuelle et campagnes UGC sur Instagram.',
       stats: [{n:'+12 000',l:'abonnés'}],
       tags: ['Direction artistique','Stratégie de contenu','UGC'],
-      img2: 'assets/projet-boun.jpg'
+      img2: 'assets/projet-boun.jpg',
+      contentBg: '#0a0e12'
     },
     {
       label: 'Coutant',
@@ -332,7 +334,8 @@
       type: 'Site web & e-commerce',
       desc: 'Un site artisanal qui incarne l\'identité de la marque et génère des ventes.',
       stats: [{n:'+40',l:'ventes par le site'}],
-      tags: ['Design','Développement']
+      tags: ['Design','Développement'],
+      contentBg: '#150b04'
     }
   ];
 
@@ -358,6 +361,8 @@
 
   var projNav = detail ? detail.querySelector('.proj-nav') : null;
 
+  function hexToRgb(h){var r=parseInt(h.slice(1,3),16),g=parseInt(h.slice(3,5),16),b=parseInt(h.slice(5,7),16);return r+','+g+','+b;}
+
   function updateNavLight() {
     if(!projNav || !scroll) return;
     var heroH = detail.querySelector('.proj-hero') ? detail.querySelector('.proj-hero').offsetHeight : window.innerHeight * 0.68;
@@ -367,6 +372,8 @@
   function openProj(idx) {
     var p = PROJ[idx];
     if(!p) return;
+    detail.style.setProperty('--proj-rgb', hexToRgb(p.contentBg || '#1b050a'));
+    detail.classList.toggle('proj-light', !!p.light);
     document.getElementById('proj-bg').src = p.bg;
     document.getElementById('proj-bg').alt = p.label;
     var heroH1 = document.getElementById('proj-hero-h1');
