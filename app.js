@@ -360,6 +360,14 @@
       + '<div class="pc-cta-block"><a data-wa href="#contact">Démarrer un projet similaire</a></div>';
   }
 
+  var projNav = detail ? detail.querySelector('.proj-nav') : null;
+
+  function updateNavLight() {
+    if(!projNav || !scroll) return;
+    var heroH = detail.querySelector('.proj-hero') ? detail.querySelector('.proj-hero').offsetHeight : window.innerHeight * 0.68;
+    projNav.classList.toggle('is-light', scroll.scrollTop > heroH * 0.8);
+  }
+
   function openProj(idx) {
     var p = PROJ[idx];
     if(!p) return;
@@ -374,14 +382,18 @@
     detail.setAttribute('aria-hidden','false');
     detail.classList.add('open');
     document.body.classList.add('proj-open');
-    if(scroll) scroll.scrollTop = 0;
+    if(scroll) { scroll.scrollTop = 0; }
+    if(projNav) projNav.classList.remove('is-light');
   }
 
   function closeProj() {
     detail.classList.remove('open');
     detail.setAttribute('aria-hidden','true');
     document.body.classList.remove('proj-open');
+    if(projNav) projNav.classList.remove('is-light');
   }
+
+  if(scroll) scroll.addEventListener('scroll', updateNavLight, {passive:true});
 
   // Clic sur les cartes projet
   document.querySelectorAll('.pcard').forEach(function(card, idx) {
