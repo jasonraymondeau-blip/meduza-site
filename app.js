@@ -349,7 +349,8 @@
       return '<div class="pc-meta-item"><span class="pc-meta-label">'+s.l+'</span><span class="pc-meta-value">'+s.n+'</span></div>';
     }).join('');
     var img2 = p.img2 ? '<div class="pc-img2"><img src="'+p.img2+'" alt="'+p.label+'" loading="lazy"></div>' : '';
-    return '<span class="pc-about-label">À propos</span>'
+    return '<h1 class="pc-h1">'+p.h1+'</h1>'
+      + '<span class="pc-about-label">À propos</span>'
       + '<p class="pc-about-text">'+p.desc+'</p>'
       + '<div class="pc-meta-row">'
       +   '<div class="pc-meta-item"><span class="pc-meta-label">Services</span><span class="pc-meta-value">'+p.type+'</span></div>'
@@ -376,8 +377,8 @@
     detail.classList.toggle('proj-light', !!p.light);
     document.getElementById('proj-bg').src = p.bg;
     document.getElementById('proj-bg').alt = p.label;
-    var heroH1 = document.getElementById('proj-hero-h1');
-    if(heroH1) heroH1.textContent = p.h1;
+    var heroLogo = document.getElementById('proj-hero-logo');
+    if(heroLogo) { heroLogo.src = p.logo; heroLogo.alt = p.label; }
     document.getElementById('proj-content').innerHTML = buildContent(p);
     // rewire WA link
     var waLink = document.querySelector('#proj-content [data-wa]');
