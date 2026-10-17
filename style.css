@@ -429,7 +429,7 @@ blockquote{margin:0 auto;max-width:820px;font-family:var(--serif);font-style:ita
   .cmp-logo{width:96px}
   .cmp .c svg{width:24px;height:24px}
   .cmp .i svg{width:22px;height:22px}
-  .whyimg{display:flex;justify-content:flex-start;margin-top:140px}
+  .whyimg{display:flex;justify-content:flex-start;margin-top:140px;position:relative;z-index:2}
   .whyimg .img{width:min(680px,100%);aspect-ratio:4/5;border:0;border-radius:calc(var(--u,2px)*5)}
   .whyimg .img img{object-position:50% 45%}
 }
@@ -916,26 +916,17 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:500}
 .about-txt p{margin:0;color:rgba(244,244,244,.68);font-size:14px;line-height:1.65}
 .faq-tabs{margin-bottom:16px}
 /* Logo "Votre entreprise" rectangle pointillé */
-.lgo-cta{border:1.5px dashed rgba(255,255,255,.38);border-radius:6px;padding:0 14px;position:relative;color:rgba(255,255,255,.5);font-style:normal;cursor:default;transition:color .2s}
+.lgo-cta{border:1.5px dashed rgba(255,255,255,.38);border-radius:6px;padding:0 7px;position:relative;color:rgba(255,255,255,.82);font-style:normal;cursor:default;transition:color .2s}
 .lgo-ctxt::before{content:'';display:inline}
-.lgo-cta:hover{color:rgba(255,255,255,.85)}
+.lgo-cta:hover{color:#fff}
 .lgo-cta:hover .lgo-ctxt::before{content:'+ '}
-/* About duo — ronds + citations dans about-txt */
-.about-duo{display:flex;gap:20px;align-items:flex-start;margin:16px 0 12px}
-.about-duo-avatars{display:flex;align-items:center;flex-shrink:0}
-.about-duo-av{width:68px;height:68px;border-radius:50%;overflow:hidden;flex-shrink:0;background:rgba(255,255,255,.06)}
-.about-duo-av.av2{margin-left:-18px}
-.about-duo-av .img{width:100%;height:100%;background-size:cover;background-position:center;min-height:68px}
-.about-duo-quotes{flex:1;min-width:0;min-height:64px;display:flex;align-items:center}
-.about-duo-q{display:none}
-.about-duo-q.active{display:flex}
-.about-duo-q .p{color:rgba(244,244,244,.62);font-style:italic;margin:0;line-height:1.65;font-size:14px}
-.about-duo-bar{height:1px;background:rgba(255,255,255,.12);border-radius:1px;overflow:hidden;margin:0 0 16px}
+/* About duo — ronds dans about-txt */
+.about-duo-avatars{display:flex;align-items:center;margin:10px 0 14px}
+.about-duo-av{width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;background:rgba(255,255,255,.06)}
+.about-duo-av.av2{margin-left:6px}
+.about-duo-av .img{width:100%;height:100%;background-size:cover;background-position:center;min-height:48px}
+.about-duo-bar{height:1px;background:rgba(255,255,255,.12);border-radius:1px;overflow:hidden;margin-top:16px}
 .about-duo-progress{height:100%;width:0%;background:rgba(255,255,255,.48)}
-@media(max-width:600px){
-  .about-duo{flex-direction:column;gap:12px}
-  .about-duo-av.av2{margin-left:8px}
-}
 .ksub{margin:0;color:var(--k-sub);font-size:13px}
 
 #faq .qa{border-radius:8px}
@@ -1037,4 +1028,10 @@ body.proj-open{overflow:hidden}
   .proj-htext{padding:0 24px 48px}
   .proj-content{padding:56px 24px 80px}
   .pc-stats{gap:32px}
+}
+/* Titre réalisations : décalé à droite de l'image whyimg pour éviter superposition */
+@media (min-width:1024px){
+  .intro{margin-left:min(700px,52%);text-align:left}
+  .intro h2{max-width:480px;font-size:clamp(38px,4.6vw,64px)!important;white-space:normal!important}
+  .intro h2 span{display:block!important}
 }

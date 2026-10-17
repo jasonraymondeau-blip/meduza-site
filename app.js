@@ -33,7 +33,7 @@
   ];
   function kcard(i){
     var d=DATA[i];
-    return '<div class="kt"><div><p class="ksub">'+d.sub+'</p></div></div>'+
+    return '<div class="kt"><div><h3>'+d.t+'</h3><p>'+d.sub+'</p></div></div>'+
       MeduzaViz.html(i)+
       '<div class="kb"><span class="big">'+d.big+'<small>'+d.unit+'</small></span></div>';
   }
