@@ -33,7 +33,7 @@
   ];
   function kcard(i){
     var d=DATA[i];
-    return '<div class="kt"><div><h3>'+d.t+'</h3><p>'+d.sub+'</p></div></div>'+
+    return '<div class="kt"><div><p class="ksub">'+d.sub+'</p></div></div>'+
       MeduzaViz.html(i)+
       '<div class="kb"><span class="big">'+d.big+'<small>'+d.unit+'</small></span></div>';
   }
@@ -44,7 +44,7 @@
     var c=document.createElement('div');c.className='card fc spot';
     c.innerHTML='<div class="detail">'+kcard(i)+'</div>';layer.appendChild(c);
     var fw=document.createElement('div');fw.className='fw';fw.textContent=DATA[i].w;fw.style.opacity='0';layer.appendChild(fw);
-    var h3=$('h3',c);h3.style.opacity='0';
+    var h3=$('h3',c);if(h3)h3.style.opacity='0';
     return {i:i,el:c,fw:fw,h3:h3};
   });
   /* une fois arrivées, les cartes 01 et 02 sont posées dans leur emplacement (elles défilent avec la page) */
@@ -216,8 +216,6 @@
     hdr.classList.toggle('solid',text.getBoundingClientRect().top<-H*.9*(W<700?.7:1));
   }
 
-  /* contact : la photo et « Vous » se rapprochent quand le pointeur approche du bouton */
-  (function(){var btn=document.querySelector('.dk-contact .cbtn'),me=document.querySelector('.dk-contact .pair .me'),you=document.querySelector('.dk-contact .pair .you');if(!btn||!me||!you)return;var t=0,tgt=0,raf=0;function paint(){me.style.transform='translateX('+(t*64).toFixed(1)+'px)';you.style.transform='translateX('+(-t*64).toFixed(1)+'px)'}function step(){t+=(tgt-t)*.06;if(Math.abs(tgt-t)<.001)t=tgt;paint();raf=t!==tgt?requestAnimationFrame(step):0}document.addEventListener('pointermove',function(e){var r=btn.getBoundingClientRect(),d=Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2));var q=Math.max(0,Math.min(1,(170-d)/140)),n=q*q*(3-2*q);if(n!==tgt){tgt=n;if(!raf)raf=requestAnimationFrame(step)}},{passive:true})})();
 
   /* lumière qui suit la souris sur les cartes de Services */
   document.addEventListener('pointermove',function(e){
