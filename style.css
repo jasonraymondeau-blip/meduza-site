@@ -906,6 +906,21 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:500}
   opacity:1 !important;
 }
 
+/* Qui sommes-nous : image à gauche, texte à droite */
+.about-split{--fih:clamp(320px,calc(100vh - 400px),560px);display:grid;grid-template-columns:calc(var(--fih)*.72) 1fr;gap:clamp(32px,4vw,72px);align-items:start}
+.about-split .faq-img{height:var(--fih);width:calc(var(--fih)*.72);position:relative;margin:0;max-width:100%}
+.about-txt{display:grid;gap:22px;align-content:start;padding-top:4px}
+.about-txt h2,.about-txt .p{margin:0}
+.about-txt .tabs,.about-txt .ask{border-radius:8px}
+.about-txt .tab,.about-txt .btn{border-radius:6px}
+#faq .qa{border-radius:8px}
+@media (max-width:860px){
+  .about-split{grid-template-columns:1fr;gap:24px}
+  .about-split .faq-img{height:clamp(260px,70vw,440px);width:100%;max-width:100%;order:-1}
+}
+/* Bouton On en discute : plus compact */
+.cmini .cbtn{padding:8px 22px !important;font-size:13px !important}
+
 /* Animation smoke au scroll — tous les textes */
 .fx{opacity:0}
 .fx.on{animation:smokeIn .72s cubic-bezier(.22,.8,.24,1) both}
