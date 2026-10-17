@@ -123,10 +123,30 @@
         <div class="img" data-slot="about-3"><b>about-3.jpg</b></div>
       </div>
       <div class="about-txt card dkc spot">
-        <h2>Qui sommes-nous ?</h2>
-        <p class="p">Une agence de Maurice qui conçoit votre site ou votre app, puis la lance.</p>
-        <div class="ask-inline"><h3>Une question ?</h3><p>On vous répond directement sur WhatsApp.</p><a class="btn" data-wa href="#contact">Écrire sur WhatsApp</a></div>
+        <h2 class="about-h2">Qui sommes-nous ?</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis.</p>
+        <p>Nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dk" data-bg="d2" style="padding-top:0;padding-bottom:clamp(40px,6vw,80px)">
+  <div class="wrap">
+    <div class="duo-slider" id="duo-slider">
+      <div class="duo-avatars">
+        <div class="duo-av av1"><div class="img" data-slot="about-1"><b></b></div></div>
+        <div class="duo-av av2"><div class="img" data-slot="avatar"><b></b></div></div>
+      </div>
+      <div class="duo-quotes">
+        <div class="duo-q active" data-who="0">
+          <p class="p">(Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud.)</p>
+        </div>
+        <div class="duo-q" data-who="1">
+          <p class="p">(Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.)</p>
+        </div>
+      </div>
+      <div class="duo-bar"><div class="duo-progress" id="duo-progress"></div></div>
     </div>
   </div>
 </section>
@@ -154,7 +174,7 @@
     <h2>Votre projet présenté à une vraie audience.</h2>
   </div>
   <div class="marq" aria-hidden="true"><div class="track">
-    <span class="lgo"><i></i>Zafer</span><span class="lgo"><i></i>Chocolaterie Coutant</span><span class="lgo"><i></i>boun_in_mauritius</span><span class="lgo"><i></i>2side.be</span><span class="lgo"><i></i>Proh2o Réunion</span><span class="lgo"><i></i>Logo client</span><span class="lgo"><i></i>Logo client</span><span class="lgo"><i></i>Logo client</span>
+    <span class="lgo"><i></i>Zafer</span><span class="lgo"><i></i>Chocolaterie Coutant</span><span class="lgo"><i></i>boun_in_mauritius</span><span class="lgo lgo-cta"><span class="lgo-arrow" aria-hidden="true">↑ pourrait être là</span>Votre entreprise +</span><span class="lgo"><i></i>2side.be</span><span class="lgo"><i></i>Proh2o Réunion</span><span class="lgo"><i></i>Logo client</span><span class="lgo"><i></i>Logo client</span><span class="lgo"><i></i>Logo client</span>
   </div></div>
 </section>
 
@@ -169,6 +189,11 @@
         <span class="avail"><i class="d" aria-hidden="true"></i>Disponible pour un projet</span>
       </div>
       <div class="cmini">
+        <div class="pair">
+          <div class="img me" data-slot="about-1" data-alt="Nous"><b></b></div>
+          <span class="plus" aria-hidden="true"></span>
+          <div class="you"><span class="mono">Vous</span></div>
+        </div>
         <a class="cbtn" data-wa href="#contact">On en discute</a>
       </div>
     </div>
@@ -208,5 +233,27 @@
 
 <script src="cartes-interactions.js"></script>
 <script src="app.js"></script>
+<script>
+(function(){
+  var qs=document.querySelectorAll('#duo-slider .duo-q');
+  var bar=document.getElementById('duo-progress');
+  if(!qs.length||!bar)return;
+  var cur=0,dur=5000,start=0;
+  function show(i){
+    qs.forEach(function(q,j){q.classList.toggle('active',j===i)});
+    start=performance.now();
+    bar.style.transition='none';bar.style.width='0%';
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      bar.style.transition='width '+dur+'ms linear';bar.style.width='100%';
+    })});
+  }
+  function tick(){
+    if(performance.now()-start>=dur){cur=(cur+1)%qs.length;show(cur);}
+    requestAnimationFrame(tick);
+  }
+  show(0);requestAnimationFrame(tick);
+  setTimeout(function(){show(0);requestAnimationFrame(tick);},200);
+})();
+</script>
 </body>
 </html>
